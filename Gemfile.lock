@@ -40,6 +40,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     daemons (1.1.9)
+    database_cleaner (1.1.1)
     devise (3.1.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -146,6 +147,7 @@ DEPENDENCIES
   arel (~> 4.0.0)
   bootstrap-sass-rails (~> 3.0.0.3)
   coffee-rails (~> 4.0.0)
+  database_cleaner (~> 1.1.1)
   devise (~> 3.1.1)
   jbuilder (~> 1.5.1)
   jquery-rails

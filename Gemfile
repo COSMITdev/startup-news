@@ -50,6 +50,10 @@ group :development, :test do
   gem 'machinist', '~> 2.0'
 end
 
+group :test do
+  gem 'database_cleaner', '~> 1.1.1'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
