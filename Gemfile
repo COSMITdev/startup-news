@@ -7,6 +7,8 @@ gem 'arel', '~> 4.0.0'
 
 gem 'thin', '~> 1.6.0'
 
+gem 'devise', '~> 3.1.1'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.17.0'
 
