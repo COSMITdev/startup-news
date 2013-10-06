@@ -47,6 +47,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
+  gem 'machinist', '~> 2.0'
 end
 
 # Use ActiveModel has_secure_password
