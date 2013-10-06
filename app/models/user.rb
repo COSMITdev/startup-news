@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          authentication_keys: [:login]
-  validates :username, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[A-Za-z\d_]+\z/ }
+  validates :username, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[A-Za-z\d]+[A-Za-z\d_]*\z/ }
   attr_accessor :login
 
   def self.find_first_by_auth_conditions(warden_conditions)
