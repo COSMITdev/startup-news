@@ -35,4 +35,52 @@ describe User do
       it { should allow_value('0_9').for(:username) }
     end
   end
+
+  describe ".find_first_by_auth_conditions" do
+    before { @user = User.make!(email: "bla@foo.com") }
+
+    context "login as param" do
+      context "With correct username" do
+        it "Returns correct User" do
+          User.find_first_by_auth_conditions({ login: @user.username }).should eq(@user)
+        end
+      end
+
+      context "With incorrect username" do
+        context "nil username and email" do
+          it { User.find_first_by_auth_conditions({ login: nil, email: nil }).should be_nil }
+        end
+
+        context "Other username" do
+          it { User.find_first_by_auth_conditions({ login: "another_username" }).should be_nil }
+        end
+
+        context "Empty username" do
+          it { User.find_first_by_auth_conditions({ login: "" }).should be_nil }
+        end
+      end
+    end
+
+    context "email as param" do
+      context "With correct email" do
+        it "Returns correct User" do
+          User.find_first_by_auth_conditions({ email: @user.email }).should eq(@user)
+        end
+      end
+
+      context "With incorrect email" do
+        context "nil email" do
+          it { User.find_first_by_auth_conditions({ email: nil }).should be_nil }
+        end
+
+        context "Other email" do
+          it { User.find_first_by_auth_conditions({ email: "another@email.com" }).should be_nil }
+        end
+
+        context "Empty email" do
+          it { User.find_first_by_auth_conditions({ email: "" }).should be_nil }
+        end
+      end
+    end
+  end
 end
