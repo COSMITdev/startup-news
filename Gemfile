@@ -47,6 +47,7 @@ group :prodution do
 end
 
 group :development, :test do
+  gem 'pry-rails', '~> 0.3.2'
   gem 'rspec-rails', '~> 2.0'
   gem 'machinist', '~> 2.0'
 end
