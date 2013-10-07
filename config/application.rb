@@ -26,6 +26,13 @@ module StartupsNews
     config.i18n.default_locale = :'pt-BR'
 
     config.generators do |g|
+      g.javascripts false
+      g.stylesheets false
+      g.helper false
+      g.template_engine :slim
+      g.test_framework :rspec,
+        :view_specs => false,
+        :helper_specs => false
       g.fixture_replacement :machinist
     end
   end
