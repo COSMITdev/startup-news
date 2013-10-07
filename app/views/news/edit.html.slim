@@ -1,0 +1,12 @@
+h2 Editar Notícia
+
+= simple_form_for resource, input_html:{class: 'form-control'} do |f|
+  .input-group
+    = f.input :title
+    = f.label :link
+    = f.url_field :link
+    = f.input :text
+
+  .input-group
+    = f.submit "Editar notícia", class: 'btn btn-success'
+

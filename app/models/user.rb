@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   attr_accessor :login
 
+  has_many :news, dependent: :destroy
+
   validates :username, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[A-Za-z\d]+[A-Za-z\d_]*\z/ }
 
   def self.find_first_by_auth_conditions(warden_conditions)

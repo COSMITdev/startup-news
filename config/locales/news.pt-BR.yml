@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      news:
+        one: Notícia
+        other: Notícias
+
+    attributes:
+      news:
+        link: Link
+        text: Descrição
+        title: Título
+        created_at: Criada em

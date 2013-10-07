@@ -1,0 +1,15 @@
+br
+br
+h2 Últimas notícias
+
+- collection.newests.each do |news|
+  .well
+    p = news.title
+    p = link_to news.link, news.link, target: 'blank'
+    p = "#{time_ago_in_words(news.created_at)} atrás"
+    p = "Postado por: #{news.user.username}"
+    p = link_to 'Ver mais', news_path(news)
+    - if news.user == current_user
+      p 
+        = link_to 'Editar', edit_news_path(news), class: 'btn btn-warning'
+        = link_to 'Excluir', news_path(news), method: :delete, class: 'btn btn-danger', confirm: 'Tem certeza que deseja excluir esta notícia?'

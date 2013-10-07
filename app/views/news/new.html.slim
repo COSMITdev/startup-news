@@ -1,0 +1,13 @@
+h2 Nova notícia
+
+= simple_form_for resource, input_html:{class: 'form-control'} do |f|
+  .input-group
+    = f.hidden_field :user_id, value: current_user.id
+    = f.input :title
+    = f.label :link
+    = f.url_field :link
+    = f.input :text
+
+  .input-group
+    = f.submit "Cadastrar notícia", class: 'btn btn-success'
+

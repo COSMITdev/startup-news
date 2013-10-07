@@ -36,6 +36,10 @@ describe User do
     end
   end
 
+  describe "Relations" do
+    it { should have_many(:news).dependent(:destroy) }
+  end
+
   describe ".find_first_by_auth_conditions" do
     before { @user = User.make!(email: "bla@foo.com") }
 
