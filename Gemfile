@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0'
-gem 'arel', '~> 4.0.0'
 
 gem 'thin', '~> 1.6.0'
 

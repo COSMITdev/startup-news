@@ -207,7 +207,6 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
-  arel (~> 4.0.0)
   bootstrap-sass-rails (~> 3.0.0.3)
   coffee-rails (~> 4.0.0)
   database_cleaner (~> 1.1.1)
