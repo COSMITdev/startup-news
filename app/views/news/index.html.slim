@@ -1,16 +1,18 @@
 h2 Últimas notícias
 
-- collection.newests.each do |news|
-  .col-md-12
-    table.table
-      thead
-        th = news.title
-        th = link_to news.link, news.link, target: 'blank'
-        th = "#{time_ago_in_words(news.created_at)} atrás"
-        th = "Postado por: #{news.user.username}"
-        th = link_to 'Ver mais', news_path(news)
-        - if news.user == current_user
-          th
-            = link_to 'Editar', edit_news_path(news), class: 'btn btn-warning'
-            |  
-            = link_to 'Excluir', news_path(news), method: :delete, class: 'btn btn-danger', confirm: 'Tem certeza que deseja excluir esta notícia?'
+.col-md-12
+  table.table
+    tbody
+      - collection.newests.each do |news|
+        tr
+          td = news.title
+          td = link_to news.link, news.link, target: 'blank'
+          td = "(#{host_for_link(news.link)})"
+          td = "#{time_ago_in_words(news.created_at)} atrás"
+          td = t(".post_by", username: news.user.username)
+          td = link_to 'Ver mais', news_path(news)
+          - if news.user == current_user
+            td
+              = link_to 'Editar', edit_news_path(news), class: 'btn btn-warning'
+              |
+              = link_to 'Excluir', news_path(news), method: :delete, class: 'btn btn-danger', confirm: 'Tem certeza que deseja excluir esta notícia?'

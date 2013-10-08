@@ -11,3 +11,6 @@ pt-BR:
         text: Descrição
         title: Título
         created_at: Criada em
+  news:
+    index:
+      post_by: "Postado por: %{username}"
