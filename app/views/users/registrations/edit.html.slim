@@ -1,45 +1,43 @@
-h2 = "Editar #{resource_name.to_s.humanize}"
+.well.col-md-6.col-md-offset-3
 
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-  = devise_error_messages!
+  h2.text-center Editar minha conta
 
-  div
-    = f.label :username
-    br
-    = f.text_field :username, :autofocus => true
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { class: 'form', :method => :put }) do |f|
+    = devise_error_messages!
 
-  div
-    = f.label :email
-    br
-    = f.email_field :email
+    .form-group
+      = f.label :username
+      = f.text_field :username, :autofocus => true, class: 'form-control'
 
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-    = "Ainda esperando confirmação para: #{resource.unconfirmed_email}"
+    .form-group
+      = f.label :email
+      = f.email_field :email, class: 'form-control'
 
-  div
-    = f.label :password 
-    i (Deixe em branco caso não queria alterar)
-    br
-    = f.password_field :password, :autocomplete => "off"
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      .form-group
+        = "Ainda esperando confirmação para: #{resource.unconfirmed_email}"
 
-  div
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation
+    .form-group
+      = f.label :password
+      i (Deixe em branco caso não queria alterar)
+      = f.password_field :password, :autocomplete => "off", class: 'form-control'
 
-  div
-    = f.label :current_password
-    i (Senha obrigatória para aplicar modificações)
-    br
-    = f.password_field :current_password
+    .form-group
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, class: 'form-control'
 
-  div
-  = f.submit "Atualizar"
-- end
+    .form-group
+      = f.label :current_password, label: 'Senha atual (obrigatória para aplicar modificações)'
+      = f.password_field :current_password, class: 'form-control'
 
-h2 Cancelar minha conta
+    .form-inline
+      .col-md-6.text-right
+        = f.submit "Atualizar", class: 'btn btn-success'
+      .col-md-6.text-left
+        = link_to "Voltar", :back, class: 'btn btn-info'
 
-p = "Insatisfeito? #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}"
-
-= link_to "Voltar", :back
+.col-md-6.col-md-offset-3
+  p
+    | Insatisfeito? 
+    | 
+    = link_to "Cancelar minha conta", registration_path(resource_name), :data => { :confirm => "Tem certeza que deseja cancelar sua conta? Esta ação poderá ser desfeita futuramente!" }, :method => :delete

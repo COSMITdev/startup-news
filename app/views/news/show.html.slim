@@ -2,8 +2,16 @@ br
 br
 .well
   h2 = resource.title
-  p = link_to resource.link, resource.link, target: 'blank'
-  p = "#{time_ago_in_words(resource.created_at)} atrás"
+  p
+    strong = "Link"
+    br
+    = link_to resource.link, resource.link, target: 'blank'
+  p
+    strong Criada a
+    = " #{time_ago_in_words(resource.created_at)} atrás"
+  p
+    strong Descrição
+    = simple_format(resource.text)
   p = link_to 'Editar', edit_news_path(resource), class: 'btn btn-warning' if resource.user == current_user
 
 = link_to 'Voltar', :back

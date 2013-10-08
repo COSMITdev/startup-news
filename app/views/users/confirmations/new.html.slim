@@ -1,14 +1,14 @@
-h2 Reenviar instruções de confirmação
+.well.col-md-6.col-md-offset-3
+  h2.text-center Reenviar instruções de confirmação
 
-= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
-  = devise_error_messages!
+  = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }, class: 'form') do |f|
+    = devise_error_messages!
 
-  div
-    = f.label :login
-    br
-    = f.text_field :login, :autofocus => true
+    .form-group
+      = f.label :login
+      = f.text_field :login, :autofocus => true, class: 'form-control'
 
-  div
-    = f.submit "Reenviar instruções de confirmação"
+    .form-group
+      = f.submit "Reenviar instruções de confirmação", class: 'btn btn-success'
 
-= render "users/shared/links"
+  = render "users/shared/links"

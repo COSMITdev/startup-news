@@ -1,14 +1,14 @@
-h2 Reenviar instruções de desbloqueio
+.well.col-md-6.col-md-offset-3
+  h2.text-center Reenviar instruções de desbloqueio
 
-= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| 
-  = devise_error_messages! 
+  = form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }, class: 'form') do |f| 
+    = devise_error_messages!
 
-  div
-    = f.label :login
-    br
-    = f.text_field :login, :autofocus => true
+    .form-group
+      = f.label :username
+      = f.text_field :username, :autofocus => true, class: 'form-control'
 
-  div
-    = f.submit "Reenviar instruções de desbloqueio"
+    .form-group
+      = f.submit "Reenviar instruções de desbloqueio", class: 'btn btn-success'
 
-= render "users/shared/links" 
+  = render "users/shared/links"

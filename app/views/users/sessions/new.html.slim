@@ -1,22 +1,25 @@
-h2 Entrar
+.well.col-md-6.col-md-offset-3
 
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  div
-    = f.label :login
-    br
-    = f.text_field :login, :autofocus => true
+  h2.text-center Entrar
 
-  div
-    = f.label :password
-    br
-    = f.password_field :password
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name), class: 'form') do |f|
+    = devise_error_messages!
 
-  - if devise_mapping.rememberable?
-    div
-      = f.label :remember_me
-      = f.check_box :remember_me
-  
-  div
-    = f.submit "Entrar"
-  
-= render "users/shared/links"
+    .form-group
+      = f.label :username
+      = f.text_field :username, :autofocus => true, class: 'form-control'
+
+    .form-group
+      = f.label :password
+      = f.password_field :password, class: 'form-control'
+
+    - if devise_mapping.rememberable?
+      .form-inline
+        .checkbox
+          = f.label :remember_me, style: 'margin-right: 5px;'
+          = f.check_box :remember_me
+
+    .form-group.text-center
+      = f.submit "Entrar", class: 'btn btn-success'
+
+  = render "users/shared/links"
