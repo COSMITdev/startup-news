@@ -43,24 +43,24 @@ describe User do
   describe ".find_first_by_auth_conditions" do
     before { @user = User.make!(email: "bla@foo.com") }
 
-    context "login as param" do
+    context "username as param" do
       context "With correct username" do
         it "Returns correct User" do
-          User.find_first_by_auth_conditions({ login: @user.username }).should eq(@user)
+          User.find_first_by_auth_conditions({ username: @user.username }).should eq(@user)
         end
       end
 
       context "With incorrect username" do
         context "nil username and email" do
-          it { User.find_first_by_auth_conditions({ login: nil, email: nil }).should be_nil }
+          it { User.find_first_by_auth_conditions({ username: nil, email: nil }).should be_nil }
         end
 
         context "Other username" do
-          it { User.find_first_by_auth_conditions({ login: "another_username" }).should be_nil }
+          it { User.find_first_by_auth_conditions({ username: "another_username" }).should be_nil }
         end
 
         context "Empty username" do
-          it { User.find_first_by_auth_conditions({ login: "" }).should be_nil }
+          it { User.find_first_by_auth_conditions({ username: "" }).should be_nil }
         end
       end
     end
