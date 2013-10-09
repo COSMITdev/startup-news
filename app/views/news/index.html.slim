@@ -1,6 +1,9 @@
-h2 Últimas notícias
+h1.text-center Últimas notícias
 
-- collection.newests.each do |news|
+.text-center
+  = paginate collection.newests.page(params[:page]).per(20)
+
+- collection.newests.page(params[:page]).per(20).each do |news|
   .col-md-12
     table.table
       thead
@@ -14,3 +17,6 @@ h2 Últimas notícias
             = link_to 'Editar', edit_news_path(news), class: 'btn btn-warning'
             |  
             = link_to 'Excluir', news_path(news), method: :delete, class: 'btn btn-danger', confirm: 'Tem certeza que deseja excluir esta notícia?'
+
+.text-center
+  = paginate collection.newests.page(params[:page]).per(20)
