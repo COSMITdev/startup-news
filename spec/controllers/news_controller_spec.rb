@@ -51,4 +51,124 @@ describe NewsController do
       }.to change(News, :count).by(-1)
     end
   end
+
+  describe "#permitted_params" do
+    context "Passing user_id" do
+      before do
+        @expected = {
+          "news" => {
+            "link" => "link",
+            "text" => "text",
+            "title" => "title"
+          }
+        }
+        parameters = ActionController::Parameters.new({
+          news: {
+            user_id: "42",
+            link: "link",
+            text: "text",
+            title: "title"
+          }
+        })
+        controller.stub(:params).and_return(parameters)
+      end
+
+      its(:permitted_params) { should eq(@expected) }
+    end
+
+    context "Passing all valid attributes" do
+      before do
+        @expected = {
+          "news" => {
+            "link" => "link",
+            "text" => "text",
+            "title" => "title"
+          }
+        }
+        parameters = ActionController::Parameters.new({
+          news: {
+            link: "link",
+            text: "text",
+            title: "title"
+          }
+        })
+        controller.stub(:params).and_return(parameters)
+      end
+
+      its(:permitted_params) { should eq(@expected) }
+    end
+
+    context "Passing only link" do
+      before do
+        @expected = {
+          "news" => {
+            "link" => "link"
+          }
+        }
+        parameters = ActionController::Parameters.new({
+          news: {
+            link: "link"
+          }
+        })
+        controller.stub(:params).and_return(parameters)
+      end
+
+      its(:permitted_params) { should eq(@expected) }
+    end
+
+    context "Passing only text" do
+      before do
+        @expected = {
+          "news" => {
+            "text" => "text"
+          }
+        }
+        parameters = ActionController::Parameters.new({
+          news: {
+            text: "text"
+          }
+        })
+        controller.stub(:params).and_return(parameters)
+      end
+
+      its(:permitted_params) { should eq(@expected) }
+    end
+
+    context "Passing title" do
+      before do
+        @expected = {
+          "news" => {
+            "title" => "title"
+          }
+        }
+        parameters = ActionController::Parameters.new({
+          news: {
+            title: "title"
+          }
+        })
+        controller.stub(:params).and_return(parameters)
+      end
+
+      its(:permitted_params) { should eq(@expected) }
+    end
+
+    context "Passing only invalid params" do
+      before do
+        @expected = {
+          "news" => {  }
+        }
+        parameters = ActionController::Parameters.new({
+          news: {
+            admin: true,
+            user_id: 42,
+            up: 2000,
+            down: 2000
+          }
+        })
+        controller.stub(:params).and_return(parameters)
+      end
+
+      its(:permitted_params) { should eq(@expected) }
+    end
+  end
 end
