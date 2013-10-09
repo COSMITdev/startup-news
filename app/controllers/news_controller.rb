@@ -1,5 +1,5 @@
 class NewsController < InheritedResources::Base
-  before_filter :authenticate_user!, except:[:index]
+  before_filter :authenticate_user!, except: [:index, :show]
 
   def create
     @news = News.new(permitted_params[:news])
