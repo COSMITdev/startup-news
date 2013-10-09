@@ -1,0 +1,22 @@
+h1.text-center Minhas notícias
+
+.text-center
+  = paginate @my_news
+
+.col-md-12
+  table.table
+    tbody
+      - @my_news.each do |news|
+        tr
+          td = truncate(news.title, length: 40, omission: '...')
+          td = link_to "#{host_for_link(news.link)}", news.link, target: 'blank'
+          td = "#{time_ago_in_words(news.created_at)} atrás"
+          td = link_to 'Ver mais', news_path(news)
+          - if news.user == current_user
+            td
+              = link_to 'Editar', edit_news_path(news), class: 'btn btn-warning'
+              |
+              = link_to 'Excluir', news_path(news), method: :delete, class: 'btn btn-danger', confirm: 'Tem certeza que deseja excluir esta notícia?'
+
+.text-center
+  = paginate @my_news

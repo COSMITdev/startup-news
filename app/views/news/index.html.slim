@@ -8,17 +8,16 @@ h1.text-center Últimas notícias
     tbody
       - collection.newests.page(params[:page]).per(20).each do |news|
         tr
-          td = news.title
-          td = link_to news.link, news.link, target: 'blank'
-          td = "(#{host_for_link(news.link)})"
+          td = truncate(news.title, length: 25, omission: '...')
+          td = link_to "#{host_for_link(news.link)}", news.link, target: 'blank'
           td = "#{time_ago_in_words(news.created_at)} atrás"
           td = t(".post_by", username: news.user.username)
           td = link_to 'Ver mais', news_path(news)
-          - if news.user == current_user
-            td
-              = link_to 'Editar', edit_news_path(news), class: 'btn btn-warning'
-              |
-              = link_to 'Excluir', news_path(news), method: :delete, class: 'btn btn-danger', confirm: 'Tem certeza que deseja excluir esta notícia?'
+          / - if news.user == current_user
+          /   td
+          /     = link_to 'Editar', edit_news_path(news), class: 'btn btn-warning'
+          /     |
+          /     = link_to 'Excluir', news_path(news), method: :delete, class: 'btn btn-danger', confirm: 'Tem certeza que deseja excluir esta notícia?'
 
 .text-center
   = paginate collection.newests.page(params[:page]).per(20)

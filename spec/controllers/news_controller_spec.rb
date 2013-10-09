@@ -5,6 +5,8 @@ describe NewsController do
     before do
       @news ||= News.make!
       @user ||= @news.user
+      @my_news = []
+      @my_news << @news
       sign_in @user
     end
     let(:valid_create) {{
@@ -38,6 +40,16 @@ describe NewsController do
     it "GET show" do
       get :show, id: @news
       response.should be_success
+    end
+
+    it "GET my_news" do
+      5.times do
+        @my_news << News.make!(user: @user)
+      end
+
+      get :my_news
+
+      assigns(:my_news).should =~ @my_news
     end
 
     it "GET edit" do

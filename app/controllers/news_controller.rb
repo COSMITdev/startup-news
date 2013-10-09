@@ -7,6 +7,10 @@ class NewsController < InheritedResources::Base
     create!
   end
 
+  def my_news
+    @my_news = current_user.news.page(params[:page]).per(20)
+  end
+
   private
 
   def permitted_params
