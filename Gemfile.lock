@@ -225,6 +225,7 @@ DEPENDENCIES
   devise (~> 3.1.1)
   jbuilder (~> 1.5.1)
   jquery-rails
+  kaminari
   machinist (~> 2.0)
   pg (~> 0.17.0)
   pry-rails (~> 0.3.2)

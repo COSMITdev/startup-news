@@ -4,5 +4,5 @@ class News < ActiveRecord::Base
   validates :user_id, :title, :link, presence: true
   validates :link, url: true
 
-  scope :newests, -> { order('created_at DESC')}
+  scope :newests, -> { order('created_at DESC') }
 end

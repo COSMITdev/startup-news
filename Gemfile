@@ -34,6 +34,9 @@ gem 'bootstrap-sass-rails', '~> 3.0.0.3'
 # Simple form for form wrappers
 gem 'simple_form'
 
+# Kaminari gem for pagenating searchs and scopes
+gem 'kaminari'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
