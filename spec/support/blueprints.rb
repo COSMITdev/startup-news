@@ -20,3 +20,11 @@ News.blueprint do
   link { 'http://lists.gnupg.org/pipermail/gnupg-announce/2013q4/000334.html' }
   text { 'Apenas um conteúdo de testes mesmo' }
 end
+
+Comment.blueprint do
+  user { User.make! }
+  title { 'Título do comentário' }
+  text { 'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem 
+    ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor 
+    sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet ' }
+end

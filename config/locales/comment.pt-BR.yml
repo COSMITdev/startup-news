@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      comment:
+        one: Comentário
+        other: Comentários
+
+    attributes:
+      comment:
+        text: Descrição
+        title: Título
+        created_at: Criada em
+  comments:
+    index:
+      post_by: "Postado por: %{username}"
