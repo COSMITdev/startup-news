@@ -10,7 +10,6 @@ describe ApplicationController do
 
     context "devise_parameter_sanitizer for sign_up" do
       it { controller.devise_parameter_sanitizer.for(:sign_up).should include(:username) }
-      it { controller.devise_parameter_sanitizer.for(:sign_up).should include(:email) }
     end
 
     context "devise_parameter_sanitizer for :sign_in" do
@@ -18,7 +17,6 @@ describe ApplicationController do
     end
 
     context "devise_parameter_sanitizer for :account_update" do
-      it { controller.devise_parameter_sanitizer.for(:account_update).should include(:email) }
       it { controller.devise_parameter_sanitizer.for(:account_update).should include(:username) }
     end
   end
