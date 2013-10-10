@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131007175943) do
+ActiveRecord::Schema.define(version: 20131009232010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,11 +51,14 @@ ActiveRecord::Schema.define(version: 20131007175943) do
 
   create_table "news", force: true do |t|
     t.integer  "user_id"
-    t.string   "title",      default: "", null: false
-    t.text     "link",       default: "", null: false
+    t.string   "title",      default: "",  null: false
+    t.text     "link",       default: "",  null: false
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "up",         default: 0,   null: false
+    t.integer  "down",       default: 0,   null: false
+    t.float    "rank",       default: 0.0, null: false
   end
 
   add_index "news", ["user_id"], name: "index_news_on_user_id", using: :btree
