@@ -9,7 +9,7 @@ h1.text-center Últimas notícias
       - collection.newests.page(params[:page]).per(20).each do |news|
         tr
           td = truncate(news.title, length: 25, omission: '...')
-          td = link_to "#{host_for_link(news.link)}", news.link, target: 'blank'
+          td = link_to host_for_link(news.link), news.link, target: 'blank'
           td = "#{time_ago_in_words(news.created_at)} atrás"
           td = t(".post_by", username: news.user.username)
           td = link_to 'Ver mais', news_path(news)
