@@ -12,6 +12,6 @@ class CommentsController < InheritedResources::Base
   private
 
   def permitted_params
-    params.permit(comment: [:title, :text])
+    params.permit(comment: [:text])
   end
 end

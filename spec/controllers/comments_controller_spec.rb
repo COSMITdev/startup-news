@@ -12,7 +12,6 @@ describe CommentsController do
     let(:valid_create) {{
       'news_id' => @news.id,
       'user_id' => @user.id,
-      'title' => 'Título de teste',
       'text' => 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet'
     }}
 
@@ -34,15 +33,13 @@ describe CommentsController do
       before do
         @expected = {
           "comment" => {
-            "text" => "text",
-            "title" => "title"
+            "text" => "text"
           }
         }
         parameters = ActionController::Parameters.new({
           comment: {
             user_id: "42",
-            text: "text",
-            title: "title"
+            text: "text"
           }
         })
         controller.stub(:params).and_return(parameters)
@@ -55,14 +52,12 @@ describe CommentsController do
       before do
         @expected = {
           "comment" => {
-            "text" => "text",
-            "title" => "title"
+            "text" => "text"
           }
         }
         parameters = ActionController::Parameters.new({
           comment: {
-            text: "text",
-            title: "title"
+            text: "text"
           }
         })
         controller.stub(:params).and_return(parameters)
@@ -89,24 +84,6 @@ describe CommentsController do
       its(:permitted_params) { should eq(@expected) }
     end
 
-    context "Passing title" do
-      before do
-        @expected = {
-          "comment" => {
-            "title" => "title"
-          }
-        }
-        parameters = ActionController::Parameters.new({
-          comment: {
-            title: "title"
-          }
-        })
-        controller.stub(:params).and_return(parameters)
-      end
-
-      its(:permitted_params) { should eq(@expected) }
-    end
-
     context "Passing only invalid params" do
       before do
         @expected = {
@@ -114,10 +91,7 @@ describe CommentsController do
         }
         parameters = ActionController::Parameters.new({
           comment: {
-            admin: true,
-            user_id: 42,
-            up: 2000,
-            down: 2000
+            something: true
           }
         })
         controller.stub(:params).and_return(parameters)
