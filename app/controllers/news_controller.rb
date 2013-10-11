@@ -7,6 +7,11 @@ class NewsController < InheritedResources::Base
     create!
   end
 
+  def show
+    @comment = Comment.new
+    show!
+  end
+
   def my_news
     @my_news = current_user.news.page(params[:page]).per(20)
   end

@@ -1,0 +1,13 @@
+- if user_signed_in?
+  .well.col-md-12
+    = simple_form_for @comment, html: { class: 'form'} do |f|
+      = f.hidden_field :news_id, value: resource.id
+      .form-group
+        = f.input :title
+      .form-group
+        = f.input :text, :input_html => { :rows => 6 }
+
+      .form-group.text-center
+        = f.submit "Comentar", class: 'btn btn-success'
+- else
+  .alert.alert-info Você precisa estar logado para comentar esta notícia.

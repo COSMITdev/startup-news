@@ -8,6 +8,7 @@ StartupsNews::Application.routes.draw do
   get '/my_news' => 'news#my_news', as: 'my_news'
 
   resources :news
+  resources :comments, only:[:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          authentication_keys: [:username]
 
   has_many :news, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[A-Za-z\d]+[A-Za-z\d_]*\z/ }
 

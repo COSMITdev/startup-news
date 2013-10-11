@@ -14,4 +14,9 @@ br
     = simple_format(resource.text)
   p = link_to 'Editar', edit_news_path(resource), class: 'btn btn-warning' if resource.user == current_user
 
+hr
+
+= render 'comments/form', local: { comment: @comment  }
+= render 'comments/index'
+
 = link_to 'Voltar', :back

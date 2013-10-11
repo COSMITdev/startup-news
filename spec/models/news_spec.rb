@@ -23,6 +23,7 @@ describe News do
 
   describe "Relations" do
     it { should belong_to :user }
+    it { should have_many(:comments).dependent(:destroy)}
   end
 
   describe "#rate_up" do
