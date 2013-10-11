@@ -37,7 +37,7 @@ class News < ActiveRecord::Base
     else
       0
     end
-    epoch_seconds = (created_at.to_i - Time.local(2005, 12, 8, 7, 46, 43).to_time.to_i).to_f
+    epoch_seconds = (created_at.to_i - DateTime.new(2005, 12, 8, 7, 46, 43).to_time.to_i).to_f
     ranking = (displacement * sign.to_f) + ( epoch_seconds / 45000)
     update_attribute(:rank, ranking)
   end

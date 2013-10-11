@@ -220,7 +220,7 @@ describe News do
             it "returns correct rank" do
               news = News.new(up: 10, down: 0)
               news.update_rank
-              expect(news.rank).to eq(5496.965711111111)
+              expect(news.rank).to eq(5497.125711111111)
             end
           end
 
@@ -228,7 +228,7 @@ describe News do
             it "returns correct rank" do
               news = News.new(up: 10, down: 9)
               news.update_rank
-              expect(news.rank).to eq(5495.965711111111)
+              expect(news.rank).to eq(5496.125711111111)
             end
           end
         end
@@ -238,7 +238,7 @@ describe News do
             it "returns correct rank" do
               news = News.new(up: 0, down: 10)
               news.update_rank
-              expect(news.rank).to eq(5494.965711111111)
+              expect(news.rank).to eq(5495.125711111111)
             end
           end
 
@@ -246,7 +246,7 @@ describe News do
             it "returns correct rank" do
               news = News.new(up: 9, down: 10)
               news.update_rank
-              expect(news.rank).to eq(5495.965711111111)
+              expect(news.rank).to eq(5496.125711111111)
             end
           end
         end
@@ -256,7 +256,7 @@ describe News do
             it "returns correct rank" do
               news = News.new(up: 0, down: 0)
               news.update_rank
-              expect(news.rank).to eq(5495.965711111111)
+              expect(news.rank).to eq(5496.125711111111)
             end
           end
 
@@ -264,7 +264,7 @@ describe News do
             it "returns correct rank" do
               news = News.new(up: 10, down: 10)
               news.update_rank
-              expect(news.rank).to eq(5495.965711111111)
+              expect(news.rank).to eq(5496.125711111111)
             end
           end
         end
