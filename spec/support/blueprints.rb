@@ -23,7 +23,6 @@ end
 
 Comment.blueprint do
   user { User.make! }
-  title { 'Título do comentário' }
   text { 'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem 
     ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor 
     sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet ' }
