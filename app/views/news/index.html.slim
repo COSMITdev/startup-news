@@ -1,5 +1,15 @@
 - collection.newests.page(params[:page]).per(20).each do |news|
-  .well.well-sm.col-md-12
+  .news-box
+    h4 = truncate(news.title, length: 90, omission: '...')
+    p.link = host_for_link(news.link)
+    p
+      = "#{time_ago_in_words(news.created_at)} atrás "
+      |  por 
+      strong = news.user.username
+      = " · "
+      = link_to "(#{news.comments.count}) comentários", news_path(news)
+
+  /.well.well-sm.col-md-12
     h3 = truncate(news.title, length: 90, omission: '...')
     p
       = link_to 'Up', vote_up_news_path(news), method: :post, remote: true

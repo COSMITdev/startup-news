@@ -41,6 +41,8 @@
     .nav-itens
       = link_to 'Novas', root_path
       .pull-right
+        = link_to 'Nova notícia', new_news_path
+        |&nbsp|&nbsp
         - unless user_signed_in?
           = link_to 'Registrar-se', new_user_registration_path
           |&nbsp|&nbsp
