@@ -13,7 +13,6 @@ html
     = render 'layouts/header'
 
     .container
-      .row
-        = yield
+      = yield
 
-        = render 'layouts/footer' if current_page?(root_path)
+      = render 'layouts/footer' if current_page?(root_path)

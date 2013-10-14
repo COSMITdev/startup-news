@@ -1,5 +1,28 @@
 .news-box{
+  .controls{
+    float: left;
+    width: 34px;
+    margin-top: 7px;
+    margin-left: 20px;
+    margin-right: 20px;
+    .btn{
+      margin-bottom: 6px;
+    }
+  }
+  a{
+    color: #f84241;
+  }
+  margin-bottom: 8px;
+  padding: 12px 0px 12px 0px;
   border: 1px solid #ccc;
   width: 100%;
   background-color: white;
+  .link{
+    color: #a5a5a5;
+    font-size: 10pt;
+    line-height: 4px;
+  }
+  .timestamp{
+    color: #a5a5a5
+  }
 }
