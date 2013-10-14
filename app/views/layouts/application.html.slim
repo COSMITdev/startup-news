@@ -14,3 +14,5 @@ html
     .container
       .row
         = yield
+
+        = render 'layouts/footer' if current_page?(root_path)
