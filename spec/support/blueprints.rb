@@ -23,7 +23,14 @@ end
 
 Comment.blueprint do
   user { User.make! }
-  text { 'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem 
-    ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor 
+  text { 'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem
+    ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor
     sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet ' }
+end
+
+Vote.blueprint do
+  user { User.make! }
+  news { News.make! }
+  is_up { true }
+  ip { "127.0.0.1" }
 end

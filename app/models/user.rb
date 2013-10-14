@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          authentication_keys: [:username]
 
-  has_many :news, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :news, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[A-Za-z\d]+[A-Za-z\d_]*\z/ }
 

@@ -7,7 +7,12 @@ StartupsNews::Application.routes.draw do
   root 'news#index'
   get '/my_news' => 'news#my_news', as: 'my_news'
 
-  resources :news
+  resources :news do
+    member do
+      post '/vote/up' => 'votes#create', vote: 'up'
+      post '/vote/down' => 'votes#create', vote: 'down'
+    end
+  end
   resources :comments, only:[:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
