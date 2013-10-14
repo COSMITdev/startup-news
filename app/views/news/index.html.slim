@@ -2,9 +2,8 @@
   .well.well-sm.col-md-12
     h3 = truncate(news.title, length: 90, omission: '...')
     p
-      = link_to 'Up', vote_up_news_path(news), method: :post, remote: true
-      br
-      = link_to 'Down', vote_down_news_path(news), method: :post, remote: true
+      = link_to 'Up', vote_up_news_path(news), method: :post, remote: true, class: 'btn btn-success'
+      = link_to 'Down', vote_down_news_path(news), method: :post, remote: true, class: 'btn btn-danger'
     h4
      small = link_to host_for_link(news.link), news.link, target: 'blank'
     p
