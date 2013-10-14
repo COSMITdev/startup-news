@@ -7,10 +7,6 @@ br
     br
     = link_to resource.link, resource.link, target: 'blank'
   p
-    = link_to 'Up', vote_up_news_path(resource), method: :post, remote: true
-    br
-    = link_to 'Down', vote_down_news_path(resource), method: :post, remote: true
-  p
     strong Criada a
     = " #{time_ago_in_words(resource.created_at)} atrás"
   p
