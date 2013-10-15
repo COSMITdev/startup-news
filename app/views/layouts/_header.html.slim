@@ -40,6 +40,8 @@
     = link_to 'StartupNews', root_path, class: 'navbar-brand'
     .nav-itens
       = link_to 'Novas', root_path
+      |&nbsp&nbsp&nbsp
+      = link_to 'Populares', root_path
       .pull-right
         = link_to 'Nova notícia', new_news_path
         |&nbsp|&nbsp
@@ -48,6 +50,8 @@
           |&nbsp|&nbsp
           = link_to 'Entrar', new_user_session_path
         - else
+          = link_to 'Suas notícias', my_news_path
+          |&nbsp|&nbsp
           = link_to 'Sua conta', edit_user_registration_path
           |&nbsp|&nbsp
           = link_to 'Sair', destroy_user_session_path, method: :delete

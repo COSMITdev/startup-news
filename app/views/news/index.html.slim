@@ -1,4 +1,4 @@
-- collection.newests.page(params[:page]).per(20).each do |news|
+- collection.by_ranking.page(params[:page]).per(20).each do |news|
   .news-box
     .controls
       button type="button" class="btn btn-default btn-sm"
@@ -31,4 +31,4 @@
       |  comentário(s)
 
 .text-center
-  = paginate collection.newests.page(params[:page]).per(20)
+  = paginate collection.by_ranking.page(params[:page]).per(20)
