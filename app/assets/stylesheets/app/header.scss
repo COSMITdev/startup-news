@@ -5,10 +5,12 @@
   color: white;
   margin-bottom: 30px;
   padding-bottom: 10px;
+  .logo a { margin-left: 0 !important; }
   .logo{
     float: left;
     margin-top: 16px;
     margin-bottom: 6px;
+    margin-left: 0px;
   }
   a{
     color: white;
