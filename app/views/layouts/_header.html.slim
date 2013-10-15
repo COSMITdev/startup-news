@@ -1,12 +1,12 @@
-.header-bar
+.header-bar.navbar-fixed-top
   .container
     .logo
       = link_to root_path do
         = image_tag 'logo-site.png'
     .nav-itens
-      = link_to 'Novas', newests_path
-      |&nbsp&nbsp&nbsp
       = link_to 'Populares', root_path
+      |&nbsp&nbsp&nbsp
+      = link_to 'Novas', newests_path
       .pull-right
         - unless user_signed_in?
           = link_to 'Registrar-se', new_user_registration_path
