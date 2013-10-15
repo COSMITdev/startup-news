@@ -8,13 +8,9 @@
       .pull-right
         - unless user_signed_in?
           = link_to 'Registrar-se', new_user_registration_path
-          |&nbsp|&nbsp
           = link_to 'Entrar', new_user_session_path
         - else
           = link_to 'Nova notícia', new_news_path
-          |&nbsp|&nbsp
           = link_to 'Suas notícias', my_news_path
-          |&nbsp|&nbsp
           = link_to 'Sua conta', edit_user_registration_path
-          |&nbsp|&nbsp
           = link_to 'Sair', destroy_user_session_path, method: :delete

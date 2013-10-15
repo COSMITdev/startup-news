@@ -12,18 +12,18 @@
  *= require_tree ./app
  */
 
- @import "twitter/bootstrap";
+@import "twitter/bootstrap";
 
- body{
+body{
   background-color: #fafafa;
   font-family: 'Roboto', sans-serif;
-  font-weight: 100;
- }
+  font-weight: 300;
+}
 
- .form-control{
-   height: 50px; 
- }
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Roboto', sans-serif;
+}
 
- label{
-   font-weight: normal;
- }
+.form-control{ height: 50px; }
+label{ font-weight: normal; }
+a{ color: #222 }
