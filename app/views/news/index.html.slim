@@ -2,10 +2,10 @@
   .news-box
     .controls
       button type="button" class="btn btn-default btn-sm"
-        = link_to vote_up_news_path(news) do
+        = link_to vote_up_news_path(news), method: :post, remote: true, class: "remote-vote" do
           span class="glyphicon glyphicon-chevron-up"
       button type="button" class="btn btn-default btn-sm"
-        = link_to vote_down_news_path(news) do
+        = link_to vote_down_news_path(news), method: :post, remote: true, class: "remote-vote" do
           span class="glyphicon glyphicon-chevron-down"
     h4 = link_to truncate(news.title, length: 90, omission: '...'), news.link, target: "_blank"
     p.link = host_for_link(news.link)
