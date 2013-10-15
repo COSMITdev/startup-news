@@ -7,7 +7,7 @@ pt-BR:
 
     attributes:
       comment:
-        text: Descrição
+        text: Comentário
         title: Título
         created_at: Criada em
   comments:

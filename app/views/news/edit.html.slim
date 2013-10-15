@@ -6,9 +6,9 @@
       = f.input :title
     .form-group
       = f.label :link
-      = f.url_field :link, class: 'form-control'
+      = f.url_field :link, class: 'form-control', placeholder: 'Ex: http://www.website.com/url-da-noticia'
     .form-group
       = f.input :text, :input_html => { :rows => 6 }
 
-    .input-group.text-center
-      = f.submit "Editar notícia", class: 'btn btn-success'
+    .text-center
+      = f.submit "Editar notícia", class: 'btn btn-success btn-lg'

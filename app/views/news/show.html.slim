@@ -1,26 +1,29 @@
-br
-br
-.well
-  h2 = resource.title
-  p
-    strong = "Link"
-    br
-    = link_to resource.link, resource.link, target: 'blank'
-  p
-    = link_to 'Up', vote_up_news_path(resource), method: :post, remote: true
-    br
-    = link_to 'Down', vote_down_news_path(resource), method: :post, remote: true
-  p
-    strong Criada a
-    = " #{time_ago_in_words(resource.created_at)} atrás"
-  p
-    strong Descrição
-    = simple_format(resource.text)
-  p = link_to 'Editar', edit_news_path(resource), class: 'btn btn-warning' if resource.user == current_user
+.news-box
+    .controls
+      button type="button" class="btn btn-default btn-sm"
+        = link_to vote_up_news_path(resource) do
+          span class="glyphicon glyphicon-chevron-up"
+      button type="button" class="btn btn-default btn-sm"
+        = link_to vote_down_news_path(resource) do
+          span class="glyphicon glyphicon-chevron-down"
+    h4 = link_to resource.title, resource.link, target: "_blank"
+    p.link = host_for_link(resource.link)
+    p.timestamp
+      = "#{time_ago_in_words(resource.created_at)} atrás "
+      |  por 
+      strong = resource.user.username
+      = " · (#{resource.comments.count}) comentários"
+    .description
+      strong Descrição
+      p = simple_format(resource.text)
 
+      span = link_to "(editar)", edit_news_path(resource) if resource.user.eql?(current_user)
 hr
 
-= render 'comments/form', local: { comment: @comment  }
 = render 'comments/index'
+= render 'comments/form', local: { comment: @comment  }
 
-= link_to 'Voltar', :back
+
+= link_to :back do
+  button type="button" class="btn btn-default btn-xs"
+    span class="glyphicon glyphicon-chevron-left" voltar

@@ -1,7 +1,8 @@
 - if resource.comments.any?
   - resource.comments.each do |comment|
-    .well
-      p 
-        strong = "#{t(".post_by", username: comment.user.username)}"
-        = " / #{l(comment.created_at, format: :long)}"
-      p = comment.text
+    .news-box
+      .comment
+        p 
+          strong = "#{t(".post_by", username: comment.user.username)}"
+          = " | #{l(comment.created_at, format: :long)}"
+        p = comment.text

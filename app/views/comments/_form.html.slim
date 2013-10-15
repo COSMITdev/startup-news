@@ -5,7 +5,7 @@
       .form-group
         = f.input :text, :input_html => { :rows => 6 }
 
-      .form-group.text-center
-        = f.submit "Comentar", class: 'btn btn-success'
+      .text-center
+        = f.submit "Comentar", class: 'btn btn-success btn-lg'
 - else
   .alert.alert-info Você precisa estar logado para comentar esta notícia.

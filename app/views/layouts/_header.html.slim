@@ -49,4 +49,5 @@
           = link_to 'Entrar', new_user_session_path
         - else
           = link_to 'Sua conta', edit_user_registration_path
-
+          |&nbsp|&nbsp
+          = link_to 'Sair', destroy_user_session_path, method: :delete

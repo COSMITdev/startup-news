@@ -2,7 +2,7 @@
   .controls{
     float: left;
     width: 34px;
-    margin-top: 7px;
+    margin-top: 9px;
     margin-left: 20px;
     margin-right: 20px;
     .btn{
@@ -24,5 +24,14 @@
   }
   .timestamp{
     color: #a5a5a5
+  }
+
+  .description{
+    margin-left: 74px;
+    margin-bottom: 8px;
+  }
+
+  .comment{
+    padding-left: 20px;
   }
 }
