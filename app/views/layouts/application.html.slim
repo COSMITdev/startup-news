@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+doctype html
 html
   head
     title StartupsNews
@@ -8,11 +8,8 @@ html
     link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300' rel='stylesheet' type='text/css'
 
   body
-
     = render partial: 'layouts/flash', locals: { flash: flash } unless flash.empty?
     = render 'layouts/header'
-
     .container
       = yield
-
     = render 'layouts/footer'
