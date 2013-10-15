@@ -1,11 +1,23 @@
 .news-box
     .controls
-      button type="button" class="btn btn-default btn-sm"
-        = link_to vote_up_news_path(resource), method: :post, remote: true, class: "remote-vote" do
-          span class="glyphicon glyphicon-chevron-up"
-      button type="button" class="btn btn-default btn-sm"
-        = link_to vote_down_news_path(resource), method: :post, remote: true, class: "remote-vote" do
-          span class="glyphicon glyphicon-chevron-down"
+      - if user_signed_in?
+        button type="button" class="btn btn-default btn-sm #{"active" if Vote.find_user_for_news(current_user, resource) && Vote.find_user_for_news(current_user, resource).is_up?}"
+          = link_to vote_up_news_path(resource), method: :post, remote: true, class: "remote-vote" do
+            span class="glyphicon glyphicon-chevron-up"
+      - else
+         button type="button" class="btn btn-default btn-sm"
+          = link_to vote_up_news_path(resource), method: :post, remote: true, class: "remote-vote" do
+            span class="glyphicon glyphicon-chevron-up"
+      
+      - if user_signed_in?
+        button type="button" class="btn btn-default btn-sm #{"active" if Vote.find_user_for_news(current_user, resource) && !Vote.find_user_for_news(current_user, resource).is_up?}"
+          = link_to vote_down_news_path(resource), method: :post, remote: true, class: "remote-vote" do
+            span class="glyphicon glyphicon-chevron-down"
+      - else
+        button type="button" class="btn btn-default btn-sm"
+          = link_to vote_down_news_path(resource), method: :post, remote: true, class: "remote-vote" do
+            span class="glyphicon glyphicon-chevron-down"
+
     h4 = link_to resource.title, resource.link, target: "_blank"
     p.link
       = "(#{t("news.pontos", count: resource.up)}) "

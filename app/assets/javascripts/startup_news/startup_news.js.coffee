@@ -14,6 +14,7 @@ window.StartupNews =
       $(".remote-vote").bind 'ajax:success', (evt, data, status, xhr) ->
         $(this).parent().parent().find("button").removeClass("active")
         $(this).parent().addClass("active")
+        $(this).parent().addClass("voted")
         flash.hide()
         wrapper = $('<div>', { class: 'wrapper success' })
         message = "Votado com sucesso!"
