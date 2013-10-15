@@ -10,7 +10,7 @@
     p.link = host_for_link(resource.link)
     p.timestamp
       = "#{time_ago_in_words(resource.created_at)} atrás "
-      |  por
+      |  por 
       strong = resource.user.username
       = " · (#{resource.comments.count}) comentários"
     .description
