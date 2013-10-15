@@ -11,7 +11,7 @@
     p.link = host_for_link(news.link)
     p.timestamp
       = "#{time_ago_in_words(news.created_at)} atrás "
-      |  por
+      |  por 
       strong = news.user.username
       = " · "
       = link_to "(#{news.comments.count}) comentários", news_path(news)
