@@ -8,7 +8,11 @@
         = link_to vote_down_news_path(news), method: :post, remote: true, class: "remote-vote" do
           span class="glyphicon glyphicon-chevron-down"
     h4 = link_to truncate(news.title, length: 90, omission: '...'), news.link, target: "_blank"
-    p.link = host_for_link(news.link)
+    p.link 
+      = "(#{news.rank.to_i} pontos)"
+      |&nbsp
+      = host_for_link(news.link)
+
     p.timestamp
       = "#{time_ago_in_words(news.created_at)} atrás "
       |  por 

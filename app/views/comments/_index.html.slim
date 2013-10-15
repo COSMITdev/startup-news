@@ -5,4 +5,4 @@
         p 
           strong = "#{t(".post_by", username: comment.user.username)}"
           = " | #{l(comment.created_at, format: :long)}"
-        p = comment.text
+        p = simple_format(comment.text)

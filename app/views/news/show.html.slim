@@ -7,14 +7,16 @@
         = link_to vote_down_news_path(resource), method: :post, remote: true, class: "remote-vote" do
           span class="glyphicon glyphicon-chevron-down"
     h4 = link_to resource.title, resource.link, target: "_blank"
-    p.link = host_for_link(resource.link)
+    p.link
+      = "(#{resource.rank.to_i} pontos)"
+      |&nbsp
+      = host_for_link(resource.link)
     p.timestamp
       = "#{time_ago_in_words(resource.created_at)} atrás "
       |  por 
       strong = resource.user.username
       = " · (#{resource.comments.count}) comentários"
     .description
-      strong Descrição
       - if resource.text == nil || resource.text.empty?
         p = simple_format("Essa notícia não possui descrição!")
       - else
