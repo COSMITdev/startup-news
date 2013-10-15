@@ -1,34 +1,35 @@
 - collection.newests.page(params[:page]).per(20).each do |news|
   .news-box
     .controls
-      button type="button" class="btn btn-default btn-sm"
-        = link_to vote_up_news_path(news) do
-          span class="glyphicon glyphicon-chevron-up"
-      button type="button" class="btn btn-default btn-sm"
-        = link_to vote_down_news_path(news) do
-          span class="glyphicon glyphicon-chevron-down"
+      - if user_signed_in?
+        = link_to vote_up_news_path(news), method: :post, remote: true, class: "remote-vote" do
+          button type="button" class="btn btn-default btn-sm #{"active" if Vote.find_user_for_news(current_user, news) && Vote.find_user_for_news(current_user, news).is_up?}"
+            span class="glyphicon glyphicon-chevron-up"
+      - else
+        = link_to vote_up_news_path(news), method: :post, remote: true, class: "remote-vote" do
+          button type="button" class="btn btn-default btn-sm"
+            span class="glyphicon glyphicon-chevron-up"
+
+      - if user_signed_in?
+        = link_to vote_down_news_path(news), method: :post, remote: true, class: "remote-vote" do
+          button type="button" class="btn btn-default btn-sm #{"active" if Vote.find_user_for_news(current_user, news) && !Vote.find_user_for_news(current_user, news).is_up?}"
+            span class="glyphicon glyphicon-chevron-down"
+      - else
+        = link_to vote_down_news_path(news), method: :post, remote: true, class: "remote-vote" do
+          button type="button" class="btn btn-default btn-sm"
+            span class="glyphicon glyphicon-chevron-down"
+
     h4 = link_to truncate(news.title, length: 90, omission: '...'), news.link, target: "_blank"
-    p.link = host_for_link(news.link)
+    p.link
+      = "(#{t("news.pontos", count: news.up)}) "
+      = host_for_link(news.link)
+
     p.timestamp
       = "#{time_ago_in_words(news.created_at)} atrás "
       |  por 
       strong = news.user.username
       = " · "
       = link_to "(#{news.comments.count}) comentários", news_path(news)
-
-  /.well.well-sm.col-md-12
-    h3 = truncate(news.title, length: 90, omission: '...')
-    p
-      = link_to 'Up', vote_up_news_path(news), method: :post, remote: true, class: 'btn btn-success'
-      = link_to 'Down', vote_down_news_path(news), method: :post, remote: true, class: 'btn btn-danger'
-    h4
-     small = link_to host_for_link(news.link), news.link, target: 'blank'
-    p
-      span.label.label-info = "#{time_ago_in_words(news.created_at)} atrás"
-      |  por 
-      strong = "#{news.user.username}  ·  "
-      span.label.label-success = news.comments.count
-      |  comentário(s)
 
 .text-center
   = paginate collection.newests.page(params[:page]).per(20)
