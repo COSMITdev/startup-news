@@ -19,32 +19,16 @@
   /.well.well-sm.col-md-12
     h3 = truncate(news.title, length: 90, omission: '...')
     p
-      = link_to 'Up', vote_up_news_path(news), method: :post, remote: true
-      br
-      = link_to 'Down', vote_down_news_path(news), method: :post, remote: true
-    p
+      = link_to 'Up', vote_up_news_path(news), method: :post, remote: true, class: 'btn btn-success'
+      = link_to 'Down', vote_down_news_path(news), method: :post, remote: true, class: 'btn btn-danger'
+    h4
      small = link_to host_for_link(news.link), news.link, target: 'blank'
     p
-      strong = "#{time_ago_in_words(news.created_at)} atrás "
-      |  por
-      strong = news.user.username
-      = " · (#{news.comments.count}) comentários"
-
-/ .col-md-12
-/   table.table
-/     tbody
-/       - collection.newests.page(params[:page]).per(20).each do |news|
-/         tr
-/           td = truncate(news.title, length: 25, omission: '...')
-/           td = link_to host_for_link(news.link), news.link, target: 'blank'
-/           td = "#{time_ago_in_words(news.created_at)} atrás"
-/           td = t(".post_by", username: news.user.username)
-/           td = link_to 'Ver mais', news_path(news)
-          / - if news.user == current_user
-          /   td
-          /     = link_to 'Editar', edit_news_path(news), class: 'btn btn-warning'
-          /     |
-          /     = link_to 'Excluir', news_path(news), method: :delete, class: 'btn btn-danger', confirm: 'Tem certeza que deseja excluir esta notícia?'
+      span.label.label-info = "#{time_ago_in_words(news.created_at)} atrás"
+      |  por 
+      strong = "#{news.user.username}  ·  "
+      span.label.label-success = news.comments.count
+      |  comentário(s)
 
 .text-center
   = paginate collection.newests.page(params[:page]).per(20)
