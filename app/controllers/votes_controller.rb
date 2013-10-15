@@ -1,23 +1,15 @@
 class VotesController < ApplicationController
   def create
     news = News.find(params[:id])
-    errors = []
     vote = Vote.find_user_for_news(current_user, news) if user_signed_in?
     if vote ||= Vote.find_ip_for_news(request.ip, news)
-      if can_update_existing_vote?(vote) && vote.change_vote
-        news.change_existing_rate_to(vote_symbol)
-        return render nothing: true, status: :ok
-      end
+      return render(nothing: true, status: :ok) if can_update_existing_vote?(vote) && vote.change_vote
     else
       @vote = Vote.new(user: current_user, ip: request.ip, news: news, is_up: vote_value)
-      if @vote.save
-        @vote.news.__send__(:"rate_#{params[:vote]}")
-        return render nothing: true, status: :created
-      else
-        errors << @vote.errors.full_messages
-      end
+      return render nothing: true, status: :created if @vote.save
+      errors = @vote.errors.full_messages
     end
-    render json: { errors: errors }, status: :forbidden
+    render json: { errors: (errors || ["Already vote"]) }, status: :forbidden
   end
 
   private

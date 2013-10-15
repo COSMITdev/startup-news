@@ -1,4 +1,6 @@
 class Vote < ActiveRecord::Base
+  after_create :update_news_rank
+
   belongs_to :user
   belongs_to :news
 
@@ -14,7 +16,8 @@ class Vote < ActiveRecord::Base
   end
 
   def change_vote
-    update_attribute(:is_up, !is_up?)
+    new_rate = is_up? ? :down : :up
+    update_attribute(:is_up, !is_up?) && news.change_existing_rate_to(new_rate)
   end
 
   class << self
@@ -25,5 +28,15 @@ class Vote < ActiveRecord::Base
     def find_ip_for_news(ip, news)
       where(ip: ip, news: news).first
     end
+  end
+
+  private
+
+  def update_news_rank
+    news.__send__(rate_method)
+  end
+
+  def rate_method
+    is_up? ? :rate_up : :rate_down
   end
 end

@@ -44,7 +44,7 @@ describe Vote do
 
   describe "#change_vote" do
     context "up to down" do
-      subject { Vote.new(is_up: true) }
+      subject { Vote.new(is_up: true, news: stub_model(News)) }
 
       it "changes is_up to false" do
         expect{
@@ -54,7 +54,7 @@ describe Vote do
     end
 
     context "down to up" do
-      subject { Vote.new(is_up: false) }
+      subject { Vote.new(is_up: false, news: stub_model(News)) }
 
       it "changes is_up to true" do
         expect{
@@ -125,6 +125,40 @@ describe Vote do
       it "returns correct vote" do
         expect(Vote.find_ip_for_news(@the_ip, @news)).to eq(@vote)
       end
+    end
+  end
+
+  describe "#update_news_rank" do
+    context "rate_down" do
+      before { Vote.any_instance.stub(:rate_method).and_return(:rate_down) }
+
+      it "calls news.rate_down after create" do
+        News.any_instance.should_receive(:rate_down).once
+        Vote.make!
+      end
+    end
+
+    context "rate_up" do
+      before { Vote.any_instance.stub(:rate_method).and_return(:rate_up) }
+
+      it "calls news.rate_up after create" do
+        News.any_instance.should_receive(:rate_up).once
+        Vote.make!
+      end
+    end
+  end
+
+  describe "#rate_method" do
+    context "rate_down" do
+      before { Vote.any_instance.stub(:is_up?).and_return(false) }
+
+      its(:rate_method) { should be(:rate_down) }
+    end
+
+    context "rate_up" do
+      before { Vote.any_instance.stub(:is_up?).and_return(true) }
+
+      its(:rate_method) { should be(:rate_up) }
     end
   end
 end
