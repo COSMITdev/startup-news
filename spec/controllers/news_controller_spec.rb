@@ -42,6 +42,11 @@ describe NewsController do
       response.should be_success
     end
 
+    it "GET newests" do
+      get :newests
+      response.should be_success
+    end
+
     it "GET my_news" do
       5.times do
         @my_news << News.make!(user: @user)

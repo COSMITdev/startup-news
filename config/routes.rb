@@ -6,6 +6,7 @@ StartupsNews::Application.routes.draw do
 
   root 'news#index'
   get '/my_news' => 'news#my_news', as: 'my_news'
+  get '/newests' => 'news#newests', as: 'newests'
 
   resources :news do
     member do
