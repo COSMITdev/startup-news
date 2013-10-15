@@ -8,7 +8,7 @@
           span class="glyphicon glyphicon-chevron-down"
     h4 = link_to resource.title, resource.link, target: "_blank"
     p.link
-      = "(#{t("news.pontos", count: news.up)})"
+      = "(#{t("news.pontos", count: resource.up)})"
       |&nbsp
       = host_for_link(resource.link)
     p.timestamp
