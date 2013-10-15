@@ -22,10 +22,5 @@
       = f.label :password_confirmation
       = f.password_field :password_confirmation, class: 'form-control', required: true
 
-    .col-md-6.text-center.col-md-offset-3
-      .form-group
-        = f.submit "Registrar-se", class: 'btn btn-success'
-        |  
-        | ou
-        |  
-        = render "users/shared/links"
+    .text-center
+      = f.submit "Registrar-se", class: 'btn btn-success btn-lg'
