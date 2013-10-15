@@ -15,7 +15,10 @@
       = " · (#{resource.comments.count}) comentários"
     .description
       strong Descrição
-      p = simple_format(resource.text)
+      - if resource.text == nil || resource.text.empty?
+        p Essa notícia não possui descrição!
+      - else
+        p = simple_format(resource.text)
 
       span = link_to "(editar)", edit_news_path(resource) if resource.user.eql?(current_user)
 hr
