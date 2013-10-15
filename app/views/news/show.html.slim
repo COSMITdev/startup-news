@@ -16,7 +16,7 @@
     .description
       strong Descrição
       - if resource.text == nil || resource.text.empty?
-        p Essa notícia não possui descrição!
+        p = simple_format("Essa notícia não possui descrição!")
       - else
         p = simple_format(resource.text)
 
