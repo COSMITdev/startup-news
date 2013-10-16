@@ -24,7 +24,7 @@ br/
             button type="button" class="btn btn-default btn-sm"
               span class="glyphicon glyphicon-chevron-down"
       
-      h4 = link_to truncate(news.title, length: 90, omission: '...'), news.link, target: "_blank"
+      h4 = link_to truncate(news.title, length: 120, omission: '...'), news.link, target: "_blank"
       p.link
         = "(#{t("news.pontos", count: news.up)}) "
         = host_for_link(news.link)
