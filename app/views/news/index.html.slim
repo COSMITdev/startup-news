@@ -2,21 +2,21 @@
   .news-box
     .controls
       - if user_signed_in?
-        button type="button" class="btn btn-default btn-sm #{"active" if Vote.find_user_for_news(current_user, news) && Vote.find_user_for_news(current_user, news).is_up?}"
-          = link_to vote_up_news_path(news), method: :post, remote: true, class: "remote-vote" do
+        = link_to vote_up_news_path(news), method: :post, remote: true, class: "remote-vote" do
+          button type="button" class="btn btn-default btn-sm #{"active" if Vote.find_user_for_news(current_user, news) && Vote.find_user_for_news(current_user, news).is_up?}"
             span class="glyphicon glyphicon-chevron-up"
       - else
-         button type="button" class="btn btn-default btn-sm"
-          = link_to vote_up_news_path(news), method: :post, remote: true, class: "remote-vote" do
+        = link_to vote_up_news_path(news), method: :post, remote: true, class: "remote-vote" do
+          button type="button" class="btn btn-default btn-sm"
             span class="glyphicon glyphicon-chevron-up"
       
       - if user_signed_in?
-        button type="button" class="btn btn-default btn-sm #{"active" if Vote.find_user_for_news(current_user, news) && !Vote.find_user_for_news(current_user, news).is_up?}"
-          = link_to vote_down_news_path(news), method: :post, remote: true, class: "remote-vote" do
+        = link_to vote_down_news_path(news), method: :post, remote: true, class: "remote-vote" do
+          button type="button" class="btn btn-default btn-sm #{"active" if Vote.find_user_for_news(current_user, news) && !Vote.find_user_for_news(current_user, news).is_up?}"
             span class="glyphicon glyphicon-chevron-down"
       - else
-        button type="button" class="btn btn-default btn-sm"
-          = link_to vote_down_news_path(news), method: :post, remote: true, class: "remote-vote" do
+        = link_to vote_down_news_path(news), method: :post, remote: true, class: "remote-vote" do
+          button type="button" class="btn btn-default btn-sm"
             span class="glyphicon glyphicon-chevron-down"
 
     h4 = link_to truncate(news.title, length: 90, omission: '...'), news.link, target: "_blank"

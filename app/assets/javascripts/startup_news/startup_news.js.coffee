@@ -13,8 +13,9 @@ window.StartupNews =
 
       $(".remote-vote").bind 'ajax:success', (evt, data, status, xhr) ->
         $(this).parent().parent().find("button").removeClass("active")
-        $(this).parent().addClass("active")
-        $(this).parent().addClass("voted")
+        $(this).parent().parent().find("span").removeClass("active")
+        $(this).find("button").addClass("active")
+        $(this).find("span").addClass("active")
         flash.hide()
         wrapper = $('<div>', { class: 'wrapper success' })
         message = "Votado com sucesso!"
@@ -25,7 +26,9 @@ window.StartupNews =
 
       $(".remote-vote").bind 'ajax:error', (evt, data, status, xhr) ->
         $(this).parent().parent().find("button").removeClass("active")
-        $(this).parent().addClass("active")
+        $(this).parent().parent().find("span").removeClass("active")
+        $(this).find("button").addClass("active")
+        $(this).find("span").addClass("active")
         flash.hide()
         wrapper = $('<div>', { class: 'wrapper alerts-error' })
         message = data.responseJSON.errors
