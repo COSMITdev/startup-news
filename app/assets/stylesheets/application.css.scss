@@ -35,7 +35,13 @@ a{ color: #222 }
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
-.voted {border-color: #eee}
+.voted {
+  border-color: #eee;
+  color: #ddd !important;
+  border-color: #eeeeee !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
 
 .pagination{
   .active{
