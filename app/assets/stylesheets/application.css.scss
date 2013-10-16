@@ -30,3 +30,12 @@ label{ font-weight: normal; }
 a{ color: #222 }
 .btn-default {border-color: #eee}
 .voted {border-color: #eee}
+
+.pagination{
+  .active{
+    a{
+      background-color: #999 !important;
+      border-color: #999;
+    }
+  }
+}
