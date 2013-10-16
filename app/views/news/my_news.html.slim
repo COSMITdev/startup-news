@@ -9,7 +9,7 @@ br/
         - if user_signed_in?
           = link_to vote_up_news_path(news), method: :post, remote: true, class: "remote-vote" do
             button type="button" class="btn btn-default btn-sm #{"active" if Vote.find_user_for_news(current_user, news) && Vote.find_user_for_news(current_user, news).is_up?}"
-              span class="glyphicon glyphicon-chevron-up"
+              span class="glyphicon glyphicon-chevron-up #{"active" if Vote.find_user_for_news(current_user, news) && Vote.find_user_for_news(current_user, news).is_up?}"
         - else
           = link_to vote_up_news_path(news), method: :post, remote: true, class: "remote-vote" do
             button type="button" class="btn btn-default btn-sm"
@@ -18,7 +18,7 @@ br/
         - if user_signed_in?
           = link_to vote_down_news_path(news), method: :post, remote: true, class: "remote-vote" do
             button type="button" class="btn btn-default btn-sm #{"active" if Vote.find_user_for_news(current_user, news) && !Vote.find_user_for_news(current_user, news).is_up?}"
-              span class="glyphicon glyphicon-chevron-down"
+              span class="glyphicon glyphicon-chevron-down #{"active" if Vote.find_user_for_news(current_user, news) && !Vote.find_user_for_news(current_user, news).is_up?}"
         - else
           = link_to vote_down_news_path(news), method: :post, remote: true, class: "remote-vote" do
             button type="button" class="btn btn-default btn-sm"
