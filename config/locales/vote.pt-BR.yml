@@ -1,0 +1,4 @@
+pt-BR:
+  errors:
+    vote:
+      already_vote: Este é o voto atual

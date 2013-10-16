@@ -115,14 +115,14 @@ describe VotesController do
             post(:create, { id: News.make!, vote: "up" })
           end
 
-          it "returns 201 status" do
+          it "returns 500 status" do
             post(:create, { id: News.make!, vote: "up" })
-            expect(response.status).to eq(201)
+            expect(response.status).to eq(500)
           end
 
           it "returns nothing" do
             post(:create, { id: News.make!, vote: "up" })
-            expect(response.body).to eq(" ")
+            expect(response.body).to eq("{errors:Você deve estar logado para votar}")
           end
 
           it "creates a new Vote" do
@@ -163,9 +163,9 @@ describe VotesController do
             post(:create, { id: News.make!, vote: "down" })
           end
 
-          it "returns 201 status" do
+          it "returns 500 status" do
             post(:create, { id: News.make!, vote: "down" })
-            expect(response.status).to eq(201)
+            expect(response.status).to eq(500)
           end
 
           it "returns nothing" do
@@ -293,9 +293,9 @@ describe VotesController do
           context "with a post before each" do
             before { post(:create, { id: @vote.news.to_param, vote: "down" }) }
 
-            it { response.status.should eq(200) }
+            it { response.status.should eq(500) }
 
-            it { response.body.should eq(" ") }
+            it { response.body.should eq("{errors:Você deve estar logado para votar}") }
           end
         end
 
@@ -323,7 +323,7 @@ describe VotesController do
 
             it { response.status.should eq(200) }
 
-            it { response.body.should eq(" ") }
+            it { response.body.should eq("{errors:Você deve estar logado para votar}") }
           end
         end
       end
