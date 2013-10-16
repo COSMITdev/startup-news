@@ -28,7 +28,13 @@ h1, h2, h3, h4, h5, h6{
 .form-control{ height: 50px; }
 label{ font-weight: normal; }
 a{ color: #222 }
-.btn-default {border-color: #eee}
+.btn-default {
+  border-color: #eee;
+  color: #ddd !important;
+  border-color: #eeeeee !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
 .voted {border-color: #eee}
 
 .pagination{
