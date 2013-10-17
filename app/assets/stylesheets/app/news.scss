@@ -1,5 +1,8 @@
 .news-box{
   .controls{
+    .glyphicon{
+      color: #999;
+    }
     float: left;
     width: 34px;
     margin-top: 9px;
@@ -36,14 +39,16 @@
     margin-left: 74px;
     margin-bottom: 8px;
     margin-top: 28px;
+    margin-right: 74px;
   }
 
   .comment{
     padding-left: 20px;
+    margin-right: 20px;
   }
 }
 
-.active{
+.active, .voted{
   background-color: #f6f6f6 !important; 
   color: #ccc !important; 
 }
