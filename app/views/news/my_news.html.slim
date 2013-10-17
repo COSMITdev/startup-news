@@ -1,7 +1,7 @@
 h1 Minhas notícias
 br/
 - if @my_news.empty?
-  .alert.alert-warning Você precisa estar logado para comentar esta notícia.
+  .alert.alert-warning Você ainda não cadastrou nenhuma notícia.
 - else
   - @my_news.each do |news|
     .news-box
