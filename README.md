@@ -12,6 +12,10 @@ Requirements and install:
 - `rake db:create db:migrate db:test:load`
 - `rails server`
 
+If you want Google Analytics, in production you just need set environment variable ENV["GOOGLE_ANALYTICS_TRACKER"].
+On Heroku, just set `heroku config:set GOOGLE_ANALYTICS_TRACKER="your-key-go-here"` replacing `your-key-go-here` with your key
+Or if you have your own server, `export GOOGLE_ANALYTICS_TRACKER="your-key-go-here"` replacing `your-key-go-here` with your key
+
 ----------------------------------
 
 Tests
