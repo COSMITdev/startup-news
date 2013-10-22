@@ -282,4 +282,40 @@ describe News do
       subject.to_sql.should include("ORDER BY rank DESC")
     end
   end
+
+  describe "after_create :update_rank" do
+    it "dont call #update_rank if just a News.new" do
+      News.any_instance.should_not_receive(:update_rank)
+      News.new
+    end
+
+    it "call #update_rank when .save a new object" do
+      News.any_instance.should_receive(:update_rank).once
+      News.make!
+    end
+
+    context ":rank attribute changes" do
+      context "creating a news" do
+        subject { News.make! }
+
+        it { expect(subject.rank).to_not be(0.0) }
+      end
+
+      context "just a new instance" do
+        subject { News.make }
+
+        it { expect(subject.rank).to be(0.0) }
+      end
+    end
+
+    context "persisted objects" do
+      before { @news = News.make! }
+
+      it "dont call #update_rank when save a persisted object" do
+        News.any_instance.should_not_receive(:update_rank)
+        @news.up = 10
+        @news.save
+      end
+    end
+  end
 end
