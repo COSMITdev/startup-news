@@ -1,4 +1,7 @@
 class News < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy

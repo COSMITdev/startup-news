@@ -49,6 +49,9 @@ gem 'jbuilder', '~> 1.5.1'
 # Google analyticis gem
 gem "google-analytics-rails", "~> 0.0.4"
 
+# Friendly URL
+gem 'friendly_id', '~> 5.0.0'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

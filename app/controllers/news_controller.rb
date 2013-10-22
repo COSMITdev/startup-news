@@ -13,7 +13,7 @@ class NewsController < InheritedResources::Base
 
   def show
     @comment = Comment.new
-    show!
+    @resource = News.friendly.find(params[:id])
   end
 
   def my_news
