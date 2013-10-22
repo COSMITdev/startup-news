@@ -27,9 +27,9 @@ describe NewsController do
     end
 
     it "PATCH update" do
-      patch :update, id: @news, news: valid_update
-      @news.reload
-      expect(@news.title).to eql 'Título de teste modificado'
+      expect{
+        patch :update, id: @news.to_param, news: valid_update
+      }.to change{ @news.reload.title }.to('Título de teste modificado')
     end
 
     it "GET index" do

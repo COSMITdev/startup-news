@@ -1,19 +1,16 @@
 class VotesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
-    if user_signed_in?
-      news = News.friendly.find(params[:id])
-      vote = Vote.find_user_for_news(current_user, news) if user_signed_in?
-      if vote ||= Vote.find_ip_for_news(request.ip, news)
-        return render(nothing: true, status: :ok) if can_update_existing_vote?(vote) && vote.change_vote
-      else
-        @vote = Vote.new(user: current_user, ip: request.ip, news: news, is_up: vote_value)
-        return render nothing: true, status: :created if @vote.save
-        errors = @vote.errors.full_messages
-      end
+    news = News.friendly.find(params[:id])
+    if vote = Vote.find_user_for_news(current_user, news)
+      return render(nothing: true, status: :ok) if can_update_existing_vote?(vote) && vote.change_vote
     else
-      errors = 'Você deve estar logado para votar'
+      @vote = Vote.new(user: current_user, ip: request.ip, news: news, is_up: vote_value)
+      return render nothing: true, status: :created if @vote.save
+      errors = @vote.errors.full_messages
     end
-    render json: { errors: (errors || [I18n.t('errors.vote.already_vote')]) }, status: :error
+    render json: { errors: (errors || [I18n.t('errors.vote.already_vote')]) }, status: :forbidden
   end
 
   private

@@ -27,11 +27,14 @@ window.StartupNews =
       $(".remote-vote").bind 'ajax:error', (evt, data, status, xhr) ->
         $(this).parent().parent().find("button").removeClass("active")
         $(this).parent().parent().find("span").removeClass("active")
-        $(this).find("button").addClass("active")
-        $(this).find("span").addClass("active")
+        if data.status == 401
+          message = data.responseText
+        else
+          $(this).find("button").addClass("active")
+          $(this).find("span").addClass("active")
+          message = data.responseJSON.errors
         flash.hide()
         wrapper = $('<div>', { class: 'wrapper alerts-error' })
-        message = data.responseJSON.errors
         message = $('<div>', { class: 'alerts-error', text: message })
         wrapper.html(message)
         flash.html(wrapper)
