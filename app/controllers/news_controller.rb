@@ -2,7 +2,7 @@ class NewsController < InheritedResources::Base
   before_filter :authenticate_user!, except: [:index, :show, :newests]
 
   def newests
-    
+
   end
 
   def create
@@ -13,7 +13,7 @@ class NewsController < InheritedResources::Base
 
   def show
     @comment = Comment.new
-    @resource = News.friendly.find(params[:id])
+    show!
   end
 
   def my_news
@@ -24,5 +24,9 @@ class NewsController < InheritedResources::Base
 
   def permitted_params
     params.permit(news: [:title, :link, :text])
+  end
+
+  def resource
+    @news ||= News.friendly.find(params[:id])
   end
 end

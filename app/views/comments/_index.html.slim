@@ -1,8 +1,8 @@
-- if @resource.comments.any?
-  - @resource.comments.each do |comment|
+- if resource.comments.any?
+  - resource.comments.each do |comment|
     .news-box
       .comment
-        p 
+        p
           strong = "#{t(".post_by", username: comment.user.username)}"
           = " | #{l(comment.created_at, format: :long)}"
         p = simple_format(comment.text)
