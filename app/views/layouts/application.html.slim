@@ -12,6 +12,7 @@ html
     meta property='og:locale' content='pt_BR'
     meta property='og:url' content='http://www.startupnews.com.br'
     meta property='og:image' content='http://www.startupnews.com.br/images/startupnews-logo.jpg'
+    = analytics_init if Rails.env.production?
 
   body
     = render partial: 'layouts/flash', locals: { flash: flash } unless flash.empty?
