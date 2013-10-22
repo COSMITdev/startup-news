@@ -12,6 +12,10 @@ class News < ActiveRecord::Base
   scope :newests, -> { order('created_at DESC') }
   scope :by_ranking, -> { order('rank DESC') }
 
+  def should_generate_new_friendly_id?
+    new_record? || slug.blank?
+  end
+
   def rate_up
     update_attribute(:up, up + 1) and update_rank
   end
