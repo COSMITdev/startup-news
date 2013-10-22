@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
   def create
     if user_signed_in?
-      news = News.find(params[:id])
+      news = News.friendly.find(params[:id])
       vote = Vote.find_user_for_news(current_user, news) if user_signed_in?
       if vote ||= Vote.find_ip_for_news(request.ip, news)
         return render(nothing: true, status: :ok) if can_update_existing_vote?(vote) && vote.change_vote
