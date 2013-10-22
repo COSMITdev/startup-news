@@ -1,7 +1,7 @@
 - if user_signed_in?
   .well.col-md-12
     = simple_form_for @comment, html: { class: 'form'} do |f|
-      = f.hidden_field :news_id, value: @resource.id
+      = f.hidden_field :news_id, value: resource.id
       .form-group
         = f.input :text, :input_html => { :rows => 6 }
 
