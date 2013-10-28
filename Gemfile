@@ -49,6 +49,8 @@ gem 'jbuilder', '~> 1.5.1'
 # Google analyticis gem
 gem "google-analytics-rails", "~> 0.0.4"
 
+gem 'newrelic_rpm'
+
 # Friendly URL
 gem 'friendly_id', '~> 5.0.0'
 

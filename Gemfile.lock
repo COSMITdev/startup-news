@@ -108,6 +108,7 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.2)
+    newrelic_rpm (3.6.8.168)
     orm_adapter (0.4.0)
     pg (0.17.0)
     polyamorous (0.6.4)
@@ -232,6 +233,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   machinist (~> 2.0)
+  newrelic_rpm
   pg (~> 0.17.0)
   pry-rails (~> 0.3.2)
   rails (= 4.0.0)
