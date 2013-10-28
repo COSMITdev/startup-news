@@ -1,5 +1,5 @@
 .well.col-md-6.col-md-offset-3
-  h2.text-center Reenviar instruções de confirmação
+  h1.text-center Reenviar instruções de confirmação
 
   = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }, class: 'form') do |f|
     = devise_error_messages!
