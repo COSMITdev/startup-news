@@ -2,7 +2,12 @@ class NewsController < InheritedResources::Base
   before_filter :authenticate_user!, except: [:index, :show, :newests]
 
   def newests
+    @news = News.newests
 
+    respond_to do |format|
+      format.html
+      format.atom
+    end
   end
 
   def create
