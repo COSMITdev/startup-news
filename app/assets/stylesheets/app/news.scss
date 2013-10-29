@@ -51,8 +51,8 @@
 }
 
 .active, .voted{
-  background-color: #f6f6f6 !important; 
-  color: #ccc !important; 
+  background-color: #f6f6f6 !important;
+  color: #ccc !important;
 }
 
 @media (max-width: 489px) {
@@ -81,7 +81,7 @@
     width: 20px;
     height: 18px;
     display: inline-block;
-    margin-left:6px;
+    margin-left: 6px;
   }
 
   .btn-twitter{
@@ -89,5 +89,6 @@
     width: 18px;
     height: 18px;
     display: inline-block;
+    margin-left: 4px;
   }
 }

@@ -30,8 +30,8 @@
 
       a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.startupnews.com.br%2Fnews%2F#{resource.slug}" target="_blank" class="btn-facebook"
 
-      a href="https://twitter.com/share?url=http://startupnews.com.br/news/#{resource.slug}&hashtags=startupnews&text=#{resource.slug}%20-&via=startupnewsbr" class="btn-twitter" target="_blank"
-      
+      a href="https://twitter.com/share?url=http://startupnews.com.br/news/#{resource.slug}&hashtags=startupnews&text=#{resource.title}%20-&via=startupnewsbr" class="btn-twitter" target="_blank"
+
     .description
       - if resource.text == nil || resource.text.empty?
         //p = simple_format("Essa notícia não possui descrição!")

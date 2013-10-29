@@ -9,7 +9,7 @@
           = link_to vote_up_news_path(news), method: :post, remote: true, class: "remote-vote" do
             button type="button" class="btn btn-default btn-sm"
               span class="glyphicon glyphicon-chevron-up"
-        
+
         - if user_signed_in?
           = link_to vote_down_news_path(news), method: :post, remote: true, class: "remote-vote" do
             button type="button" class="btn btn-default btn-sm #{"active" if Vote.find_user_for_news(current_user, news) && !Vote.find_user_for_news(current_user, news).is_up?}"
@@ -20,20 +20,20 @@
               span class="glyphicon glyphicon-chevron-down"
 
       h4 = link_to truncate(news.title, length: 120, omission: '...'), news.link, target: "_blank"
-      p.link 
+      p.link
         = "(#{t("news.pontos", count: news.up)}) "
         = host_for_link(news.link)
 
       p.timestamp
         = "#{time_ago_in_words(news.created_at)} atrás "
-        |  por 
+        |  por
         strong = news.user.username
         = " · "
         = link_to "(#{news.comments.count}) comentários", news_path(news)
-      
+
         a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.startupnews.com.br%2Fnews%2F#{news.slug}" target="_blank" class="btn-facebook"
 
-        a href="https://twitter.com/share?url=http://startupnews.com.br/news/#{news.slug}&hashtags=startupnews&text=#{news.slug}%20-&via=startupnewsbr" class="btn-twitter" target="_blank"
+        a href="https://twitter.com/share?url=http://startupnews.com.br/news/#{news.slug}&hashtags=startupnews&text=#{news.title}%20-&via=startupnewsbr" class="btn-twitter" target="_blank"
 
 .text-center
   = paginate collection.by_ranking.page(params[:page]).per(20)
