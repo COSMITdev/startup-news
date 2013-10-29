@@ -6,6 +6,10 @@ atom_feed do |feed|
     feed.entry(news) do |entry|
       entry.title(news.title)
       entry.content(news.text, type: 'html')
+
+      entry.author do |author|
+        author.name("Startup News")
+      end
     end
   end
 end
