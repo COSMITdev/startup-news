@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/codelandev/startup_news.png?branch=master)](https://travis-ci.org/codelandev/startup_news)
 [![Code Climate](https://codeclimate.com/github/codelandev/startup_news.png)](https://codeclimate.com/github/codelandev/startup_news)
+[![Dependency Status](https://gemnasium.com/codelandev/startup_news.png)](https://gemnasium.com/codelandev/startup_news)
 
 ## Então, o que é isso?
 Startup News é uma aplicação web que visa centralizar as informações sobre Startups no brasil. As notícias são postadas POR usuários PARA usuários, e qualquer um pode postar o que achar interessante.
