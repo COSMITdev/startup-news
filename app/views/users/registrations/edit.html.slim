@@ -1,6 +1,6 @@
 .well.col-md-6.col-md-offset-3
 
-  h2.text-center Editar minha conta
+  h1.text-center Editar minha conta
 
   = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { class: 'form', :method => :put }) do |f|
     = devise_error_messages!
