@@ -23,7 +23,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'slim-rails', '~> 2.0.3'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 2.2.1'
+gem 'uglifier', '~> 2.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
