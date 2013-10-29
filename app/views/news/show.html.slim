@@ -25,6 +25,7 @@
     p.timestamp
       = "#{time_ago_in_words(resource.created_at)} atrás "
       |  por
+      |&nbsp
       strong = resource.user.username
       = " · (#{resource.comments.count}) comentários"
 

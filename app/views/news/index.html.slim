@@ -27,6 +27,7 @@
       p.timestamp
         = "#{time_ago_in_words(news.created_at)} atrás "
         |  por
+        |&nbsp
         strong = news.user.username
         = " · "
         = link_to "(#{news.comments.count}) comentários", news_path(news)
