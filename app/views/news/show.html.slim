@@ -27,7 +27,7 @@
       |  por
       |&nbsp
       strong = resource.user.username
-      = " · (#{resource.comments.count}) comentários"
+      = " · (#{resource.comments.count}) comentários ·"
 
       a href="https://www.facebook.com/sharer/sharer.php?u=#{Rack::Utils.escape(request.url)}" target="_blank" class="btn-facebook"
 
