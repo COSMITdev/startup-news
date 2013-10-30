@@ -1,18 +1,18 @@
 doctype html
 html
   head
-    title STARTUPNEWS
+    title = "#{current_page?(root_url) ? 'STARTUPNEWS' : 'STARTUPNEWS | '+resource.title}"
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
     = favicon_link_tag 'favicon.ico'
     link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300' rel='stylesheet' type='text/css'
     meta name="viewport" content="width=device-width, initial-scale=1"
-    meta property='og:title' content="STARTUPNEWS"
+    meta property='og:title' content="#{current_page?(root_url) ? 'STARTUPNEWS' : 'STARTUPNEWS | '+resource.title}"
     meta property='og:site_name' content="STARTUPNEWS"
     meta property='og:locale' content='pt_BR'
-    meta property='og:url' content='http://www.startupnews.com.br'
-    meta property='og:image' content='http://www.startupnews.com.br/images/site-profile.png'
+    meta property='og:url' content="#{request.url}"
+    meta property='og:image' content='http://#{request.host}/images/site-profile.png'
     = analytics_init if Rails.env.production?
 
   body

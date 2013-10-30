@@ -32,9 +32,5 @@
         = " · "
         = link_to "(#{news.comments.count}) comentários", news_path(news)
 
-        a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.startupnews.com.br#{news_path(news)}" target="_blank" class="btn-facebook"
-
-        a href="https://twitter.com/share?url=http://startupnews.com.br/news/#{news.slug}&hashtags=startupnews&text=#{news.title}%20-&via=startupnewsbr" class="btn-twitter" target="_blank"
-
 .text-center
   = paginate collection.by_ranking.page(params[:page]).per(20)
