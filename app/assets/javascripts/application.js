@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require ./startup_news/startup_news
+//= require twitter/bootstrap
 //= require_tree ./lib
 //= require_tree ./startup_news

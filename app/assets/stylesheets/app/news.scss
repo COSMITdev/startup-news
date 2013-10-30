@@ -1,13 +1,13 @@
 .news-box{
   .controls{
+    float: left;
+    width: 34px;
+    margin-top: 11px;
+    margin-left: 20px;
+    margin-right: 20px;
     .glyphicon{
       color: #999;
     }
-    float: left;
-    width: 34px;
-    margin-top: 9px;
-    margin-left: 20px;
-    margin-right: 20px;
     .btn{
       margin-bottom: 6px;
     }
@@ -51,8 +51,8 @@
 }
 
 .active, .voted{
-  background-color: #f6f6f6 !important; 
-  color: #ccc !important; 
+  background: none !important; 
+  color: #eee !important; 
 }
 
 @media (max-width: 489px) {
