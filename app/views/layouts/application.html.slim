@@ -8,8 +8,13 @@ html
     = favicon_link_tag 'favicon.ico'
     link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300' rel='stylesheet' type='text/css'
     meta name="viewport" content="width=device-width, initial-scale=1"
-    meta property='og:title' content="STARTUPNEWS"
-    meta property='og:site_name' content="STARTUPNEWS"
+    - unless current_page?(root_path) 
+      - if current_page?(news_path(resource))
+        meta property='og:title' content="#{resource.title}"
+        meta property='og:site_name' content="#{resource.title}"
+      - else
+        meta property='og:title' content="STARTUPNEWS"
+        meta property='og:site_name' content="STARTUPNEWS"
     meta property='og:locale' content='pt_BR'
     meta property='og:url' content="#{request.url}"
     meta property='og:image' content='http://#{request.host}/images/logo-site.png'
