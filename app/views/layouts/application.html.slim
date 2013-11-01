@@ -13,10 +13,10 @@ html
       meta property='og:title' content="STARTUPNEWS"
       meta property='og:site_name' content="STARTUPNEWS"
     - elsif current_page?(news_path(resource))
-      meta property='og:title' content="#{resource.title}"
-      meta property='og:site_name' content="#{resource.title}"
+      meta property='og:title' content=resource.title
+      meta property='og:site_name' content=resource.title
     meta property='og:locale' content='pt_BR'
-    meta property='og:url' content="#{request.url}"
+    meta property='og:url' content=request.url
     meta property='og:image' content='http://#{request.host}/images/logo-site.png'
     = analytics_init if Rails.env.production?
 
