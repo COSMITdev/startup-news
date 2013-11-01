@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe NewsHelper do
-
   describe "#host_for_link" do
     context "normal url" do
       subject { helper.host_for_link("http://www.codeland.com.br") }

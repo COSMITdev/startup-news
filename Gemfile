@@ -7,6 +7,9 @@ gem 'rails-i18n', '~> 4.0.0'
 
 gem 'thin', '~> 1.6.0'
 
+# For cookie and session store
+gem 'activerecord-session_store'
+
 gem 'devise', '~> 3.1.1'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
@@ -53,6 +56,10 @@ gem 'newrelic_rpm'
 
 # Friendly URL
 gem 'friendly_id', '~> 5.0.0'
+
+# Omniauths
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

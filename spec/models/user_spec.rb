@@ -40,6 +40,7 @@ describe User do
     it { should have_many(:news).dependent(:destroy) }
     it { should have_many(:comments).dependent(:destroy) }
     it { should have_many(:votes).dependent(:destroy) }
+    it { should have_one(:authentication).dependent(:destroy) }
   end
 
   describe ".find_first_by_auth_conditions" do

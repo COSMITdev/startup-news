@@ -34,3 +34,7 @@ Vote.blueprint do
   is_up { true }
   ip { "127.0.0.1" }
 end
+
+Authentication.blueprint do
+  # Attributes here
+end

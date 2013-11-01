@@ -17,6 +17,15 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
+# Enale Omniauth testing
+OmniAuth.config.test_mode = true
+OmniAuth.config.add_mock(:facebook,
+        {:provider     => "facebook",
+         :uid          => "1234",
+         :info         => {:name    => "John Doe",
+                           :email   => "johndoe@email.com"}
+        })
+
 RSpec.configure do |config|
   config.include Devise::TestHelpers,  type: :controller
   # ## Mock Framework
