@@ -1,28 +1,28 @@
 doctype html
 html
   head
-    title = "STARTUPNEWS"
-    = stylesheet_link_tag    "application", media: "all"
-    = javascript_include_tag "application"
-    = csrf_meta_tags
-    = favicon_link_tag 'favicon.ico'
-    link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300' rel='stylesheet' type='text/css'
-    meta name="viewport" content="width=device-width, initial-scale=1"
-    - unless current_page?(root_path) 
-      - if current_page?(news_path(resource))
-        meta property='og:title' content="#{resource.title}"
-        meta property='og:site_name' content="#{resource.title}"
-      - else
-        meta property='og:title' content="STARTUPNEWS"
-        meta property='og:site_name' content="STARTUPNEWS"
-    meta property='og:locale' content='pt_BR'
-    meta property='og:url' content="#{request.url}"
-    meta property='og:image' content='http://#{request.host}/images/logo-site.png'
-    = analytics_init if Rails.env.production?
+  title = "STARTUPNEWS"
+  = stylesheet_link_tag    "application", media: "all"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+  = favicon_link_tag 'favicon.ico'
+  link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300' rel='stylesheet' type='text/css'
+  meta name="viewport" content="width=device-width, initial-scale=1"
+
+  - if current_page?(root_path) || current_page?(my_news_path)
+    meta property='og:title' content="STARTUPNEWS"
+    meta property='og:site_name' content="STARTUPNEWS"
+  - elsif current_page?(news_path(resource))
+    meta property='og:title' content="#{resource.title}"
+    meta property='og:site_name' content="#{resource.title}"
+  meta property='og:locale' content='pt_BR'
+  meta property='og:url' content="#{request.url}"
+  meta property='og:image' content='http://#{request.host}/images/logo-site.png'
+  = analytics_init if Rails.env.production?
 
   body
-    = render partial: 'layouts/flash', locals: { flash: flash } unless flash.empty?
-    = render 'layouts/header'
-    .container
-      = yield
-    = render 'layouts/footer'
+  = render partial: 'layouts/flash', locals: { flash: flash } unless flash.empty?
+  = render 'layouts/header'
+  .container
+    = yield
+  = render 'layouts/footer'
