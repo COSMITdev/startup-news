@@ -15,8 +15,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         sign_in_and_redirect @authenticated_user.user, event: :authentication
         set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
       else
-        session["devise.facebook_data"] = @auth.except("extra")
-        redirect_to new_user_registration_url
+        password = Devise.friendly_token[0,20]
+        user = User.create!(username:@auth.info.nickname.gsub('.', ''),
+                           email:@auth.info.email,
+                           password:password,
+                           password_confirmation:password
+                          )
+        sign_in_and_redirect user, event: :authentication
+        set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
+        # session["devise.facebook_data"] = @auth.except("extra")
+        # redirect_to new_user_registration_url
       end
     end
   end
