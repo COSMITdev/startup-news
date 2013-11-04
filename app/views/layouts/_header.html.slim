@@ -3,8 +3,9 @@
     = link_to root_path, title: "STARTUPNEWS" do
       .logo
     .nav-itens
-      = link_to 'Populares', root_path, title: "Populares"
-      = link_to 'Novas', newests_path, title: "Novas"
+      .filters.pull-left  
+        = link_to 'Populares', root_path, title: "Populares"
+        = link_to 'Novas', newests_path, title: "Novas"
       .pull-right
         - unless user_signed_in?
           = link_to 'Registrar-se', new_user_registration_path, title: "Registrar-se"
