@@ -77,18 +77,34 @@
 
 @media (min-width: 490px) {
   .btn-facebook{
+    position: absolute;
     background-image: asset-url('facebook.png');
+    background-color: #f6f6f6;
+    background-position:center;
     width: 20px;
-    height: 18px;
+    height: 20px;
     display: inline-block;
-    margin-left: 6px;
+    margin: -2px 0 0 8px;
+    border-radius: 2px;
+  }
+  .btn-facebook:hover, .btn-facebook:active {
+    background-image: asset-url('facebook-hover.png');
+    background-color: #4c66a4;
   }
 
   .btn-twitter{
+    position: absolute;
     background-image: asset-url('twitter.png');
-    width: 18px;
-    height: 18px;
+    background-color: #f6f6f6;
+    background-position:center;
+    width: 20px;
+    height: 20px;
     display: inline-block;
-    margin-left: 4px;
+    margin: -2px 0 0 32px;
+    border-radius: 2px;
+  }
+  .btn-twitter:hover, .btn-twitter:active {
+    background-image: asset-url('twitter-hover.png');
+    background-color: #00cafb;
   }
 }

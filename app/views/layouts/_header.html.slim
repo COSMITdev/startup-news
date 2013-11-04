@@ -9,7 +9,6 @@
       = link_to 'Novas', newests_path
       .pull-right
         - unless user_signed_in?
-          = link_to "Logar com facebook", user_omniauth_authorize_path(:facebook)
           = link_to 'Registrar-se', new_user_registration_path
           = link_to 'Entrar', new_user_session_path
         - else

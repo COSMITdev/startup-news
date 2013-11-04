@@ -29,9 +29,9 @@
       strong = resource.user.username
       = " · (#{resource.comments.count}) comentários ·"
 
-      a href="https://www.facebook.com/sharer/sharer.php?u=#{Rack::Utils.escape(request.url)}" target="_blank" class="btn-facebook"
+      a href="https://www.facebook.com/sharer/sharer.php?u=#{Rack::Utils.escape(request.url)}" target="_blank" class="btn-facebook" title="Compartilhar no Facebook"
 
-      a href="https://twitter.com/share?url=#{request.url}&hashtags=startupnews&text=#{truncate(resource.title, length: 30, omission: '...')}%20-&via=startupnewsbr" class="btn-twitter" target="_blank"
+      a href="https://twitter.com/share?url=#{request.url}&hashtags=startupnews&text=#{truncate(resource.title, length: 30, omission: '...')}%20-&via=startupnewsbr" class="btn-twitter" target="_blank" title="Compartilhar no Twitter"
 
     .description
       - if resource.text == nil || resource.text.empty?
