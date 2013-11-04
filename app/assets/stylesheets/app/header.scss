@@ -8,17 +8,20 @@
     padding-bottom: 10px;
     .logo a { margin-left: 0 !important; }
     .logo{
-      width: 100%;
-      text-align: center;
-      margin-top: 11px;
+      background-image: image-url('logo-site-mobile.png');
+      float: left;
+      width: 28px;
+      height: 20px;
+      margin: 16px 0 6px 0;
     }
     a{
       color: white;
-      margin-left: 5px;
-      margin-right: 5px;
     }
     .nav-itens{
       margin-top: 17px;
+      a {
+        margin-left: 15px;
+      }
     }
   }
 }
@@ -33,17 +36,20 @@
     padding-bottom: 10px;
     .logo a { margin-left: 0 !important; }
     .logo{
+      background-image: image-url('logo-site.png');
+      width: 154px;
+      height: 20px;
       float: left;
-      margin-top: 16px;
-      margin-bottom: 6px;
-      margin-left: 0px;
+      margin: 16px 0 6px 0;
     }
     a{
       color: white;
-      margin-left: 20px;
     }
     .nav-itens{
       margin-top: 17px;
+      a{
+        margin-left: 20px;
+      }
     }
   }
 }
