@@ -1,0 +1,7 @@
+test:
+  adapter: postgresql
+  username: postgres
+  password:
+  database: startups_news_test
+  min_messages: ERROR
+  encoding: unicode
