@@ -1,6 +1,8 @@
-require 'simplecov'
-SimpleCov.start 'rails' do
-  add_filter "/app/admin"
+unless ENV['CI'] || ENV['TRAVIS']
+  require 'simplecov'
+  SimpleCov.start 'rails' do
+    add_filter "/app/admin"
+  end
 end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
