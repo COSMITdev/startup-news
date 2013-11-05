@@ -46,6 +46,9 @@ gem 'kaminari'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Preview emails on development enviroment
+gem 'letter_opener'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.5.1'
 
