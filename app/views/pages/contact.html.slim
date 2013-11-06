@@ -1,5 +1,6 @@
+- content_for(:og_title, t(".og_title"))
+- content_for(:og_site_name, t(".og_site_name"))
 .well.col-md-6.col-md-offset-3
-
   h1.text-center Contato
   = form_tag dispatch_email_path, method: :post do |f|
     .form-group
@@ -15,5 +16,3 @@
       = text_area_tag "user_info[message]", nil, class: 'form-control', required: true, style: 'height: 180px !important;'
 
     = submit_tag "Enviar mensagem", class: 'btn btn-success btn-lg'
-
-

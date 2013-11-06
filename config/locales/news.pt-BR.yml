@@ -26,7 +26,9 @@ pt-BR:
   news:
     index:
       post_by: "Postado por: %{username}"
-    
+    my_news:
+      og_site_name: STARTUPNEWS - Minhas Notícias
+      og_title: STARTUPNEWS - Minhas Notícias
     pontos:
       one: "%{count} ponto"
       other: "%{count} pontos"

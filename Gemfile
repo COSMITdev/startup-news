@@ -18,6 +18,7 @@ gem 'pg', '~> 0.17.0'
 
 # Use edge version of sprockets-rails
 gem 'sprockets-rails', '~> 2.0.0'
+gem 'asset_sync', '~> 1.0.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
