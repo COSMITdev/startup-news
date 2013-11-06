@@ -1,10 +1,19 @@
-h2 Contato
+.well.col-md-6.col-md-offset-3
 
-= form_tag dispatch_email_path, method: :post do
-  = label_tag "user_info[name]", "Nome"
-  = text_field_tag "user_info[name]"
-  = label_tag "user_info[email]", "E-mail"
-  = text_field_tag "user_info[email]"
-  = label_tag "user_info[message]", "Mensagem"
-  = text_area_tag "user_info[message]", ""
-  = submit_tag "Send"
+  h1.text-center Contato
+  = form_tag dispatch_email_path, method: :post do |f|
+    .form-group
+      = label_tag "user_info[name]", "Nome"
+      = text_field_tag "user_info[name]", nil, class: 'form-control', required: true
+
+    .form-group
+      = label_tag "user_info[email]", "E-mail"
+      = text_field_tag "user_info[email]", nil, class: 'form-control', required: true
+
+    .form-group
+      = label_tag "user_info[message]", "Mensagem"
+      = text_area_tag "user_info[message]", nil, class: 'form-control', required: true, style: 'height: 180px !important;'
+
+    = submit_tag "Enviar mensagem", class: 'btn btn-success btn-lg'
+
+
