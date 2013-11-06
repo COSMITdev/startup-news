@@ -1,3 +1,6 @@
+- content_for(:og_title, t(".og_title"))
+- content_for(:og_site_name, t(".og_site_name"))
+
 h2 Contato
 
 = form_tag dispatch_email_path, method: :post do
