@@ -10,7 +10,7 @@ gem 'thin', '~> 1.6.0'
 # For cookie and session store
 gem 'activerecord-session_store'
 
-gem 'devise', '~> 3.1.1'
+gem 'devise', '~> 3.2.0'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Use postgresql as the database for Active Record
