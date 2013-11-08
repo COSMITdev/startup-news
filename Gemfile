@@ -33,7 +33,7 @@ gem 'uglifier', '~> 2.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # Twitter bootstrap
-gem 'bootstrap-sass-rails', '~> 3.0.0.3'
+gem 'bootstrap-sass-rails', '~> 3.0.2.1'
 
 # Simple form for form wrappers
 gem 'simple_form'
