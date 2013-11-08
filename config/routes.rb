@@ -9,7 +9,7 @@ StartupsNews::Application.routes.draw do
   get '/newests' => 'news#newests', as: 'newests'
   get '/sobre' => 'pages#about', as: 'about'
   get '/contato' => 'pages#contact', as: 'contact'
-  post '/dispatch_email' => 'pages#dispatch_email', as: 'dispatch_email', method: :post
+  post '/dispatch_email' => 'pages#dispatch_email', as: 'dispatch_email'
 
   resources :news do
     member do

@@ -6,3 +6,5 @@ pt-BR:
     contact:
       og_site_name: STARTUPNEWS - Contato
       og_title: STARTUPNEWS - Contato
+    dispatch_email:
+      success_message: Enviado com sucesso!
