@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap/transition
+//= require twitter/bootstrap/collapse
+//= require twitter/bootstrap/dropdown
 //= require ./startup_news/startup_news
-//= require twitter/bootstrap
 //= require_tree ./lib
 //= require_tree ./startup_news
