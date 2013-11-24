@@ -17,7 +17,7 @@ StartupsNews::Application.routes.draw do
       post '/vote/down' => 'votes#create', vote: 'down'
     end
   end
-  resources :comments, only:[:create, :destroy]
+  resources :comments, only:[:create, :destroy, :edit]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

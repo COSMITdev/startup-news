@@ -2,7 +2,8 @@
   - resource.comments.each do |comment|
     .news-box
       .comment
-        p
-          strong = "#{t(".post_by", username: comment.user.username)}"
-          = " | #{l(comment.created_at, format: :long)}"
+        p.author
+          strong = "#{comment.user.username}"
+          = " a #{time_ago_in_words(comment.created_at)} atrás"
         p = simple_format(comment.text)
+        span.links = link_to "editar", edit_comment_path(comment) if comment.user.eql?(current_user)

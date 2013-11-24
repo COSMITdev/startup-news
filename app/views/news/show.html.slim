@@ -36,13 +36,12 @@
 
       a href="https://twitter.com/share?url=#{request.url}&hashtags=startupnews&text=#{truncate(resource.title, length: 30, omission: '...')}%20-&via=startupnewsbr" class="btn-twitter" target="_blank" title="Compartilhar no Twitter"
 
-    .description
-      - if resource.text == nil || resource.text.empty?
-        //p = simple_format("Essa notícia não possui descrição!")
-      - else
-        p = simple_format(resource.text)
-
-      span = link_to "(editar)", edit_news_path(resource) if resource.user.eql?(current_user)
+    - if resource.text == nil || resource.text.empty?
+      
+    - else
+      .description
+        p = simple_format(resource.text)  
+    span.links.edit = link_to "editar", edit_news_path(resource) if resource.user.eql?(current_user)
 hr
 
 = render 'comments/index'
