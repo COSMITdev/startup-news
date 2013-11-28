@@ -10,6 +10,11 @@ pt-BR:
         text: Comentário
         title: Título
         created_at: Criada em
+
   comments:
     index:
       post_by: "Postado por: %{username}"
+
+  flash:
+    comments:
+      successful_update: Comentário atualizado com sucesso!
