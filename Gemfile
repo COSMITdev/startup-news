@@ -10,7 +10,7 @@ gem 'thin', '~> 1.6.0'
 # For cookie and session store
 gem 'activerecord-session_store'
 
-gem 'devise', '~> 3.2.0'
+gem 'devise', '~> 3.2.2'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Use postgresql as the database for Active Record
@@ -36,10 +36,10 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap-sass-rails', '~> 3.0.2.1'
 
 # Simple form for form wrappers
-gem 'simple_form'
+gem 'simple_form', '~> 3.0.1'
 
 # Kaminari gem for pagenating searchs and scopes
-gem 'kaminari'
+gem 'kaminari', '~> 0.15.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
