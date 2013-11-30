@@ -1,8 +1,10 @@
-unless ENV['CI'] || ENV['TRAVIS']
-  require 'simplecov'
-  SimpleCov.start 'rails' do
-    add_filter "/app/admin"
-  end
+require 'simplecov'
+if ENV['CI'] || ENV['TRAVIS']
+  require 'coveralls'
+  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+end
+SimpleCov.start 'rails' do
+  add_filter "/app/admin"
 end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
