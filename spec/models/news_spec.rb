@@ -19,6 +19,10 @@ describe News do
     it { should_not allow_value("\n").for(:link) }
     it { should_not allow_value('a space').for(:link) }
     it { should_not allow_value("blank\nline").for(:link) }
+    it { should_not allow_value("http:twitter.com/").for(:link) }
+    it { should_not allow_value("https:twitter.com/").for(:link) }
+    it { should allow_value("http://twitter.com").for(:link) }
+    it { should allow_value("https://twitter.com").for(:link) }
   end
 
   describe "Relations" do
