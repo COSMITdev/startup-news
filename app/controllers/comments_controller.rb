@@ -9,10 +9,6 @@ class CommentsController < InheritedResources::Base
     create! { news_path(@comment.news_id) }
   end
 
-  # def edit
-  #   @comment = Comment.find(params[:id])
-  # end
-
   def update
     update!(notice: I18n.t('flash.comments.successful_update')) { news_path(resource.news) }
   end
