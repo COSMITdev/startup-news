@@ -1,14 +1,14 @@
 .well.col-md-6.col-md-offset-3
   h1.text-center Editar Notícia
 
-  = simple_form_for resource, html:{class: 'form'} do |f|
+  = simple_form_for resource, html: { class: 'form' } do |f|
     .form-group
       = f.input :title
     .form-group
       = f.label :link
       = f.url_field :link, class: 'form-control', placeholder: 'Ex: http://www.website.com/url-da-noticia'
     .form-group
-      = f.input :text, :input_html => { :rows => 6 }
+      = f.input :text, input_html: { rows: 6 }
 
     .text-center
       = f.submit "Editar notícia", class: 'btn btn-success btn-lg'

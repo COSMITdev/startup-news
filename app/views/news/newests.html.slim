@@ -1,23 +1,7 @@
 - collection.newests.page(params[:page]).per(20).each do |news|
   .news-box
-    .controls
-      - if user_signed_in?
-        = link_to vote_up_news_path(news), method: :post, remote: true, class: "remote-vote" do
-          button type="button" class="btn btn-default btn-sm #{"active" if Vote.find_user_for_news(current_user, news) && Vote.find_user_for_news(current_user, news).is_up?}"
-            span class="glyphicon glyphicon-chevron-up"
-      - else
-        = link_to vote_up_news_path(news), method: :post, remote: true, class: "remote-vote" do
-          button type="button" class="btn btn-default btn-sm"
-            span class="glyphicon glyphicon-chevron-up"
-
-      - if user_signed_in?
-        = link_to vote_down_news_path(news), method: :post, remote: true, class: "remote-vote" do
-          button type="button" class="btn btn-default btn-sm #{"active" if Vote.find_user_for_news(current_user, news) && !Vote.find_user_for_news(current_user, news).is_up?}"
-            span class="glyphicon glyphicon-chevron-down"
-      - else
-        = link_to vote_down_news_path(news), method: :post, remote: true, class: "remote-vote" do
-          button type="button" class="btn btn-default btn-sm"
-            span class="glyphicon glyphicon-chevron-down"
+    - vote_exists = Vote.find_user_for_news(current_user, news) if user_signed_in?
+    = render partial: "vote", locals: { vote_exists: vote_exists, news: news }
 
     h4 = link_to truncate(news.title, length: 90, omission: '...'), news.link, target: "_blank"
     p.link
@@ -26,7 +10,7 @@
 
     p.timestamp
       = "#{time_ago_in_words(news.created_at)} atrás "
-      |  por 
+      |  por&nbsp;
       strong = news.user.username
       = " · "
       = link_to "(#{news.comments.count}) comentários", news_path(news)
