@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: a4af8d495b5c35417a81568a833bfd32013561bc
+  revision: 5b4353edc262bcb9df84f5d6f3e35392194d783a
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -277,7 +277,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.38)
-    uglifier (2.3.1)
+    uglifier (2.3.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     warden (1.2.3)
