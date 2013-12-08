@@ -26,13 +26,11 @@
         .description
           p = simple_format(resource.text)
       span.links.edit = link_to "editar", edit_news_path(resource) if resource.user.eql?(current_user)
-
   hr
-.col-md-4.well.pull-right
-  = render 'ads'  
-.col-md-8
   = render 'comments/index'
   = render 'comments/form', local: { comment: @comment  }
-
+.col-md-4.well
+  = render 'ads' 
+ 
 
 
