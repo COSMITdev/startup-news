@@ -79,5 +79,5 @@ StartupsNews::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Google analytics tracker code
-  GA.tracker = ENV["GOOGLE_ANALYTICS_TRACKER"]
+  GA.tracker = ENV["UA-586565-17"]
 end

@@ -2,35 +2,34 @@
 - content_for(:og_site_name, resource.title)
 
 - vote_exists = Vote.find_user_for_news(current_user, resource) if user_signed_in?
+.row
+  .col-md-12
+    .news-box
+        = render partial: "vote", locals: { vote_exists: vote_exists, news: resource }
 
-.col-md-8
-  .news-box
-      = render partial: "vote", locals: { vote_exists: vote_exists, news: resource }
+        h4 = link_to resource.title, resource.link, target: "_blank"
+        p.link
+          = "(#{t("news.pontos", count: resource.up)}) "
+          = host_for_link(resource.link)
+        p.timestamp
+          = "#{time_ago_in_words(resource.created_at)} atrás "
+          |  por
+          |&nbsp
+          strong = resource.user.username
+          = " · (#{resource.comments.count}) comentários ·"
 
-      h4 = link_to resource.title, resource.link, target: "_blank"
-      p.link
-        = "(#{t("news.pontos", count: resource.up)}) "
-        = host_for_link(resource.link)
-      p.timestamp
-        = "#{time_ago_in_words(resource.created_at)} atrás "
-        |  por
-        |&nbsp
-        strong = resource.user.username
-        = " · (#{resource.comments.count}) comentários ·"
+          a href="https://www.facebook.com/sharer/sharer.php?u=#{Rack::Utils.escape(request.url)}" target="_blank" class="btn-facebook" title="Compartilhar no Facebook"
 
-        a href="https://www.facebook.com/sharer/sharer.php?u=#{Rack::Utils.escape(request.url)}" target="_blank" class="btn-facebook" title="Compartilhar no Facebook"
+          a href="https://twitter.com/share?url=#{request.url}&hashtags=startupnews&text=#{truncate(resource.title, length: 30, omission: '...')}%20-&via=startupnewsbr" class="btn-twitter" target="_blank" title="Compartilhar no Twitter"
 
-        a href="https://twitter.com/share?url=#{request.url}&hashtags=startupnews&text=#{truncate(resource.title, length: 30, omission: '...')}%20-&via=startupnewsbr" class="btn-twitter" target="_blank" title="Compartilhar no Twitter"
+        - if resource.text.present?
+          .description
+            p = simple_format(resource.text)
+        span.links.edit = link_to "editar", edit_news_path(resource) if resource.user.eql?(current_user)
+    hr
+    = render 'comments/index'
+    = render 'comments/form', local: { comment: @comment  }
 
-      - if resource.text.present?
-        .description
-          p = simple_format(resource.text)
-      span.links.edit = link_to "editar", edit_news_path(resource) if resource.user.eql?(current_user)
-  hr
-  = render 'comments/index'
-  = render 'comments/form', local: { comment: @comment  }
-.col-md-4.well
-  = render 'ads' 
  
 
 
