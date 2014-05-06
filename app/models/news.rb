@@ -4,7 +4,6 @@ class News < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   belongs_to :user
-  has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
 
   validates :user_id, :title, :link, presence: true

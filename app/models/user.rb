@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:facebook],
          authentication_keys: [:username]
 
-  has_many :comments, dependent: :destroy
   has_many :news, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_one :authentication, dependent: :destroy

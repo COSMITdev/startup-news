@@ -13,7 +13,7 @@
       |  por&nbsp;
       strong = news.user.username
       = " · "
-      = link_to "(#{news.comments.count}) comentários", news_path(news)
+      = link_to "XX comentários", news_path(news)
 
 .text-center
   = paginate collection.newests.page(params[:page]).per(20)
