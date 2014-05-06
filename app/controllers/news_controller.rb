@@ -17,7 +17,6 @@ class NewsController < InheritedResources::Base
   end
 
   def show
-    @comment = Comment.new
     show!
   end
 
