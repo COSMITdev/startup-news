@@ -14,7 +14,8 @@
       |&nbsp
       strong = news.user.username
       = " · "
-      = link_to "XX comentários", news_path(news)
-
+      / = link_to "XX comentários", news_path(news)
+      = link_to "", news_path(news, :anchor => "disqus_thread"), :"data-disqus-identifer" => news.id
+  = render partial: "disqus/comment_count_javascript", locals: {news: news}
 .text-center
   = paginate collection.by_ranking.page(params[:page]).per(20)

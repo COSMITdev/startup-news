@@ -16,7 +16,8 @@
           |  por
           |&nbsp
           strong = resource.user.username
-          = " · XX comentários ·"
+          = " · "
+          = link_to "", "#disqus_thread"
 
           a href="https://www.facebook.com/sharer/sharer.php?u=#{Rack::Utils.escape(request.url)}" target="_blank" class="btn-facebook" title="Compartilhar no Facebook"
 
@@ -27,8 +28,6 @@
             p = simple_format(resource.text)
         span.links.edit = link_to "editar", edit_news_path(resource) if resource.user.eql?(current_user)
     hr
+    = render partial: "disqus/comment_count_javascript", locals: {news: resource}
     #disqus_thread
-      = raw disqus_thread
-
-
-
+      = render "disqus/thread"
