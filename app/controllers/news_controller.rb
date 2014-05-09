@@ -2,7 +2,8 @@ class NewsController < InheritedResources::Base
   before_filter :authenticate_user!, except: [:index, :show, :newests]
 
   def index
-    @shortname = ENV['DISQUS_SHORTNAME']    
+    @shortname = ENV['DISQUS_SHORTNAME']
+    index!
   end
 
   def newests
@@ -16,7 +17,7 @@ class NewsController < InheritedResources::Base
 
   def create
     @news = News.new(permitted_params[:news])
-    @news.user = current_user 
+    @news.user = current_user
     create!
   end
 
