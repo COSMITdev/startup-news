@@ -8,7 +8,7 @@ class NewsController < InheritedResources::Base
 
   def newests
     @news = News.newests
-
+    @shortname = ENV['DISQUS_SHORTNAME']
     respond_to do |format|
       format.html
       format.atom
@@ -28,6 +28,7 @@ class NewsController < InheritedResources::Base
 
   def my_news
     @my_news = current_user.news.page(params[:page]).per(20)
+    @shortname = ENV['DISQUS_SHORTNAME']
   end
 
   private

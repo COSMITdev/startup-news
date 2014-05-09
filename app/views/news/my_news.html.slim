@@ -20,7 +20,7 @@ br
         |  por&nbsp;
         strong = news.user.username
         = " · "
-        = link_to "XX comentários", news_path(news)
-
+        = link_to "Comentários", news_path(news, :anchor => "disqus_thread"), :"data-disqus-identifer" => news.id
+    = render partial: "disqus/comment_count_javascript", locals: {news: news}
 .text-center
   = paginate @my_news
