@@ -21,13 +21,6 @@ News.blueprint do
   text { 'Apenas um conteúdo de testes mesmo' }
 end
 
-Comment.blueprint do
-  user { User.make! }
-  text { 'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem
-    ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor
-    sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet ' }
-end
-
 Vote.blueprint do
   user { User.make! }
   news { News.make! }

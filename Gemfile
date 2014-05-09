@@ -65,9 +65,6 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
-# Disqus for handling
-gem 'disqus'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

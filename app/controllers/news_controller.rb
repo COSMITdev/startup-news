@@ -1,6 +1,11 @@
 class NewsController < InheritedResources::Base
   before_filter :authenticate_user!, except: [:index, :show, :newests]
 
+  def index
+    @shortname = ENV['DISQUS_SHORTNAME']
+    index!
+  end
+
   def newests
     @news = News.newests
 
@@ -17,6 +22,7 @@ class NewsController < InheritedResources::Base
   end
 
   def show
+    @shortname = ENV['DISQUS_SHORTNAME']
     show!
   end
 
