@@ -1,20 +1,20 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.2'
 
-gem 'rails', '4.0.2'
-gem 'rails-i18n', '~> 4.0.0'
+gem 'rails', '4.1.4'
+gem 'rails-i18n', '~> 4.0.2'
 
 gem 'thin', '~> 1.6.0'
 
 # For cookie and session store
 gem 'activerecord-session_store'
 
-gem 'devise', '~> 3.2.2'
+gem 'devise', '~> 3.2.4'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.17.0'
+gem 'pg', '~> 0.17.1'
 
 # Use edge version of sprockets-rails
 gem 'sprockets-rails', '~> 2.0.0'
@@ -24,7 +24,7 @@ gem 'asset_sync', '~> 1.0.0'
 gem 'sass-rails', '~> 4.0.0'
 
 # Use slim templates
-gem 'slim-rails', '~> 2.0.3'
+gem 'slim-rails', '~> 2.1.5'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 2.3.0'
