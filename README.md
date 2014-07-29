@@ -13,27 +13,31 @@ A aplicação foi feita pelo time da [CODELAND](http://www.codeland.com.br), uma
 
 São eles:
 
+- [Bruno Pazzim](http://github.com/bpazzim)
 - [Patrick Müller](http://github.com/mpatrick)
 - [Sérgio Schnorr](http://github.com/ssjr)
-- [Bruno Pazzim](http://github.com/bpazzim)
 - [Gabriel Carpenedo](http://github.com/cbgabe)
 
 ## Requirimentos e instalação:
-- Ruby 2.0.0
+- Ruby 2.1.2
+- Rails 4.1.4
 - PostgreSQL
 - `gem install bundler`
-- `bundle install`
-- `rake db:create db:migrate db:test:load`
+- `bundle`
+- `rake db:create db:migrate`
 - `rails server`
 
 Se você quiser usar o Google Analytics em produção, você precisa colocar a variável de ambiente no heroku (ENV["GOOGLE_ANALYTICS_TRACKER"])
+
 `heroku config:set GOOGLE_ANALYTICS_TRACKER="your-key-go-here"`
 
 Se você tem seu próprio servidor, basta rodar:
+
 `export GOOGLE_ANALYTICS_TRACKER="your-key-go-here"`
 
 ## Ok, então, como eu rodo os testes?
 Fácil, basta rodar o comando:
+
 `rspec .`
 
 ## Agora eu quero ajudar, como eu posso fazer isso?
