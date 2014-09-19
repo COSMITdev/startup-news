@@ -27,6 +27,8 @@ São eles:
 - `rake db:create db:migrate`
 - `rails server`
 
+Você presisará configurar a variável do Disqus (plugin de comentários) no seu servidor: `DISQUS_SHORTNAME="your-disqus-shortname-go-here"`
+
 Se você quiser usar o Google Analytics em produção, você precisa colocar a variável de ambiente no heroku (ENV["GOOGLE_ANALYTICS_TRACKER"])
 
 `heroku config:set GOOGLE_ANALYTICS_TRACKER="your-key-go-here"`

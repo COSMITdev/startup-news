@@ -1,9 +1,14 @@
 class NewsController < InheritedResources::Base
   before_filter :authenticate_user!, except: [:index, :show, :newests]
 
+  def index
+    @shortname = ENV['DISQUS_SHORTNAME']
+    index!
+  end
+
   def newests
     @news = News.newests
-
+    @shortname = ENV['DISQUS_SHORTNAME']
     respond_to do |format|
       format.html
       format.atom
@@ -17,12 +22,13 @@ class NewsController < InheritedResources::Base
   end
 
   def show
-    @comment = Comment.new
+    @shortname = ENV['DISQUS_SHORTNAME']
     show!
   end
 
   def my_news
     @my_news = current_user.news.page(params[:page]).per(20)
+    @shortname = ENV['DISQUS_SHORTNAME']
   end
 
   private
