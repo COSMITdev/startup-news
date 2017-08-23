@@ -3,12 +3,9 @@ source 'https://rubygems.org'
 ruby '2.1.2'
 
 gem 'rails', '4.1.4'
-gem 'rails-i18n', '~> 4.0.2'
+gem 'rails-i18n'
 
-gem 'thin', '~> 1.6.0'
-
-# For cookie and session store
-gem 'activerecord-session_store'
+gem 'passenger', '~> 5.0'
 
 gem 'devise', '~> 3.2.4'
 gem 'activeadmin', github: 'gregbell/active_admin'
@@ -18,7 +15,6 @@ gem 'pg', '~> 0.17.1'
 
 # Use edge version of sprockets-rails
 gem 'sprockets-rails', '~> 2.0.0'
-gem 'asset_sync', '~> 1.0.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -49,9 +45,6 @@ gem 'jquery-rails'
 
 # Preview emails on development enviroment
 gem 'letter_opener'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.5.1'
 
 # Google analyticis gem
 gem "google-analytics-rails", "~> 0.0.4"
